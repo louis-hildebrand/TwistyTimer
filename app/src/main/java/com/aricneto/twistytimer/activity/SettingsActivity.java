@@ -38,9 +38,6 @@ import com.aricneto.twistytimer.utils.Prefs;
 import com.aricneto.twistytimer.utils.ThemeUtils;
 import androidx.preference.PreferenceFragmentCompat;
 
-import java.lang.ref.PhantomReference;
-import java.util.function.Function;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -319,11 +316,12 @@ public class SettingsActivity extends AppCompatActivity {
             }
         };
 
-
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
             AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+
             super.onCreate(savedInstanceState);
+            this.onCreatePreferences(savedInstanceState, null);
 
             mContext = getContext();
 
@@ -332,13 +330,10 @@ public class SettingsActivity extends AppCompatActivity {
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            // TODO: what to do here?
-        }
-
-        public void onCreatePreferencesFix(Bundle bundle, String rootKey) {
             setPreferencesFromResource(R.xml.prefs, rootKey);
 
-            int listenerPrefIds[] = {R.string.pk_inspection_time,
+            int listenerPrefIds[] = {
+                    R.string.pk_inspection_time,
                     R.string.pref_screen_title_timer_appearance_settings,
                     R.string.pk_show_scramble_x_cross_hints,
                     R.string.pk_locale,
@@ -348,12 +343,16 @@ public class SettingsActivity extends AppCompatActivity {
                     R.string.pk_scramble_image_size,
                     R.string.pk_advanced_timer_settings_enabled,
                     R.string.pk_stat_trim_size,
-                    R.string.pk_stat_acceptable_dnf_size,
-                    R.string.pk_timer_animation_duration};
+                    // TODO: this seems to be missing
+                    // R.string.pk_stat_acceptable_dnf_size,
+                    R.string.pk_timer_animation_duration
+            };
 
             for (int prefId : listenerPrefIds) {
-                findPreference(getString(prefId))
-                        .setOnPreferenceClickListener(clickListener);
+                Preference pref = findPreference(getString(prefId));
+                if (pref != null) {
+                    pref.setOnPreferenceClickListener(clickListener);
+                }
             }
 
             mainScreen = getPreferenceScreen();
