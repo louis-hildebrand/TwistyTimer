@@ -36,7 +36,7 @@ import com.aricneto.twistytimer.listener.OnBackPressedInFragmentListener;
 import com.aricneto.twistytimer.utils.LocaleUtils;
 import com.aricneto.twistytimer.utils.Prefs;
 import com.aricneto.twistytimer.utils.ThemeUtils;
-import com.takisoft.fix.support.v7.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceFragmentCompat;
 
 import java.lang.ref.PhantomReference;
 import java.util.function.Function;
@@ -331,6 +331,10 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            // TODO: what to do here?
+        }
+
         public void onCreatePreferencesFix(Bundle bundle, String rootKey) {
             setPreferencesFromResource(R.xml.prefs, rootKey);
 

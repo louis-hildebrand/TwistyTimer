@@ -56,7 +56,9 @@ dependencies {
     implementation 'androidx.percentlayout:percentlayout:1.0.0'
     implementation "androidx.annotation:annotation:1.1.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
-    implementation 'com.takisoft.fix:preference-v7:26.0.1.0'
+    implementation 'androidx.preference:preference:1.2.1'
+    // TODO: Replace this one too?
+//    implementation 'com.takisoft.fix:preference-v7:26.0.1.0'
     implementation 'com.android.support:multidex:1.0.3'
     // Butterknife ("apt" dependency is defined in root "build.gradle" script).
     implementation 'com.jakewharton:butterknife:10.0.0'
@@ -87,7 +89,7 @@ dependencies {
     // Inapp Billing
     implementation 'com.anjlab.android.iab.v3:library:2.0.3'
     // Material color picker
-    implementation 'com.pavelsikun:vintage-chroma:1.5'
+    implementation project(':lib:vintage-chroma:library')
 
     testImplementation 'junit:junit:4.12'
 }

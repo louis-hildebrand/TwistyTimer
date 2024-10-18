@@ -122,7 +122,7 @@
         <item name="colorPrimaryDark">#0062ff</item>
     </style>
 
-    <style name="SettingsTheme" parent="PreferenceFixTheme.Light.NoActionBar">
+    <style name="SettingsTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/md_white_1000</item>
         <item name="colorPrimaryDark">@color/md_white_1000</item>
         <item name="colorAccent">@color/md_blue_A700</item>
