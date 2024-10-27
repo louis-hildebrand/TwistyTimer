@@ -62,11 +62,6 @@ public class TrainerCursorAdapter extends AlgCursorAdapter {
         return selectedItems.contains(name);
     }
 
-    public void unselectAll() {
-        selectedItems.clear();
-        TrainerScrambler.saveSelectedItems(currentSubset, currentPuzzleCategory, selectedItems);
-    }
-
     public void selectAll() {
         int size = selectedItems.size();
         Log.d("TRAINER","selecteditems: " + size);
@@ -82,6 +77,23 @@ public class TrainerCursorAdapter extends AlgCursorAdapter {
                 if (size != 21) {
                     String[] pll_cases = {"H", "Ua", "Ub", "Z", "Aa", "Ab", "E", "F", "Ga", "Gb", "Gc", "Gd", "Ja", "Jb", "Na", "Nb", "Ra", "Rb", "T", "V", "Y"};
                     selectedItems.addAll(Arrays.asList(pll_cases));
+                }
+                break;
+            case THREE_STYLE_CORNERS:
+                // TODO: Add preference for buffer position?
+                // TODO: Add preference for lettering scheme?
+                ArrayList<Character> nonBufferStickers = new ArrayList<Character>(21);
+                for (char c = 'A'; c <= 'X'; c++) {
+                    if (c != 'C' && c != 'J' && c != 'M') {
+                        nonBufferStickers.add(c);
+                    }
+                }
+                for (char c1 : nonBufferStickers) {
+                    for (char c2 : nonBufferStickers) {
+                        if (c1 != c2) {
+                            selectedItems.add("" + c1 + c2);
+                        }
+                    }
                 }
                 break;
         }

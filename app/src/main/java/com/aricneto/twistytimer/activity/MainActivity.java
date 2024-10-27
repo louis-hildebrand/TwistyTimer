@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity
     private static final int SETTINGS_ID      = 5;
     private static final int TRAINER_OLL_ID      = 14;
     private static final int TRAINER_PLL_ID      = 15;
+    private static final int TRAINER_3STYLE_CORNERS_ID = 16;
 
 
     private static final int REQUEST_SETTING           = 42;
@@ -302,7 +303,13 @@ public class MainActivity extends AppCompatActivity
                                                 .withLevel(2)
                                                 .withIcon(R.drawable.ic_pll_black_24dp)
                                                 .withIconTintingEnabled(true)
-                                                .withIdentifier(TRAINER_PLL_ID)),
+                                                .withIdentifier(TRAINER_PLL_ID),
+                                        new SecondaryDrawerItem()
+                                                .withName(R.string.drawer_title_3style_corners)
+                                                .withLevel(2)
+                                                .withIcon(R.drawable.ic_3style_corners_black_24dp)
+                                                .withIconTintingEnabled(true)
+                                                .withIdentifier(TRAINER_3STYLE_CORNERS_ID)),
 
                         new ExpandableDrawerItem()
                                 .withName(R.string.title_algorithms)
@@ -413,6 +420,19 @@ public class MainActivity extends AppCompatActivity
                                                 .beginTransaction()
                                                 .replace(R.id.main_activity_container,
                                                          TimerFragmentMain.newInstance(TrainerScrambler.TrainerSubset.PLL.name(), "Normal", TimerFragment.TIMER_MODE_TRAINER, TrainerScrambler.TrainerSubset.PLL), "fragment_main")
+                                                .commit();
+                                    }
+                                });
+                                break;
+
+                            case TRAINER_3STYLE_CORNERS_ID:
+                                mDrawerToggle.runWhenIdle(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        fragmentManager
+                                                .beginTransaction()
+                                                .replace(R.id.main_activity_container,
+                                                        TimerFragmentMain.newInstance(TrainerScrambler.TrainerSubset.THREE_STYLE_CORNERS.name(), "Normal", TimerFragment.TIMER_MODE_TRAINER, TrainerScrambler.TrainerSubset.THREE_STYLE_CORNERS), "fragment_main")
                                                 .commit();
                                     }
                                 });

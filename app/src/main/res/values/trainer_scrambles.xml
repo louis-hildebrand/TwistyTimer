@@ -2669,4 +2669,1264 @@
         <item>"R' F' U F U F' U' R' U' R F R' U R2"</item>
         <item>"R' F' U F R L2 U' B L B L' B2 U L2"</item>
     </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AB">
+        <item>"x R' U R' D2 R U' R' D2 R2 x'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AD">
+        <item>"U2 x R2 D2 R U R' D2 R U' R x' U2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AE">
+        <item>"B' R U2 R' U' R U' R' L' U2 L U L' U L B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AF">
+        <item>"F U2 R' D' R U2 R' D R F'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AG">
+        <item>"R' D R U2 R' D' R U2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AH">
+        <item>"D2 R' D' R U2 R' D R U2 D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AI">
+        <item>"L' D' L' D L U2 L' D' L D U2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AK">
+        <item>"D' R' D R U2 R' D' R U2 D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AL">
+        <item>"D R' D' R U2 R' D R U2 D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AN">
+        <item>"R D2 R' R' D R U2 R' D' R U2 R D2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AO">
+        <item>"D2 R' D R U2 R' D' R U2 D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AP">
+        <item>"R' D' R U2 R' D R U2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AQ">
+        <item>"R' U2 D' R' D R U2 R' D' R D R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AR">
+        <item>"B' L' U' L U' L' U2 L R U R' U R U2 R' B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AS">
+        <item>"D R' D R U2 R' D' R U2 D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AT">
+        <item>"D' R' D' R U2 R' D R U2 D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AU">
+        <item>"R D R' D' R' D' R U2 R' D R U2 D R D' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AV">
+        <item>"R' F R' U R D2 R' U' R D2 R' R F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AW">
+        <item>"R D' R' R' D R U2 R' D' R U2 R D R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_AX">
+        <item>"D2 R' D2 R D R' D' R U2 R' D R D' R' D2 R U2 D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BA">
+        <item>"x R2 D2 R U R' D2 R U' R x'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BD">
+        <item>"U' x R2 D2 R U R' D2 R U' R x' U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BE">
+        <item>"R U R D R' U' R D' R' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BF">
+        <item>"R' R' D' R U' R' D R U R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BG">
+        <item>"R' D R U R' D' R U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BH">
+        <item>"U' R D' R' U R D R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BI">
+        <item>"R U2 R D R' U2 R D' R' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BK">
+        <item>"D' R' D R U R' D' R U' D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BL">
+        <item>"D R' D' R U R' D R U' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BN">
+        <item>"L' U' L U' L' U2 L R U R' U R U2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BO">
+        <item>"D2 R' D R U R' D' R U' D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BP">
+        <item>"R' D' R U R' D R U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BQ">
+        <item>"R U2 R' U' R U' R' L' U2 L U L' U L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BR">
+        <item>"R' R' D' R U2 R' D R U2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BS">
+        <item>"D R' D R U R' D' R U' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BT">
+        <item>"D' R' D' R U R' D R U' D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BU">
+        <item>"x' D2 R U R' D2 R U' R' x"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BV">
+        <item>"R' B' D2 R U R' D2 R U' R' B R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BW">
+        <item>"R' B2 D2 R U R' D2 R U' R' B2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_BX">
+        <item>"x' R' D' R U2 R' D R U2 x"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DA">
+        <item>"U2 x R' U R' D2 R U' R' D2 R2 x' U2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DB">
+        <item>"U' x R' U R' D2 R U' R' D2 R2 x' U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DE">
+        <item>"U' R R D R' U2 R D' R' U2 R' U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DF">
+        <item>"L' B' L' U' L U' L' U2 L R U R' U R U2 R' B L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DG">
+        <item>"R' D R U' R' D' R U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DH">
+        <item>"D2 R' D' R U' R' D R U D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DI">
+        <item>"L' B' R U2 R' U' R U' R' L' U2 L U L' U L B L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DK">
+        <item>"D' R' D R U' R' D' R U D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DL">
+        <item>"D R' D' R U' R' D R U D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DN">
+        <item>"B2 D2 R' D' R U' R' D R U D2 B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DO">
+        <item>"D2 R' D R U' R' D' R U D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DP">
+        <item>"R' D' R U' R' D R U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DQ">
+        <item>"R' U' D' R' D R U R' D' R D R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DR">
+        <item>"L D U' R' D' R U R' D R D' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DS">
+        <item>"R' D2 R U' R' D2 R U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DT">
+        <item>"D' R' D' R U' R' D R U D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DU">
+        <item>"U' x' R U R' D2 R U' R' D2 x U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DV">
+        <item>"R' F D' U R U' R' D2 R U R' U' D2 D F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DW">
+        <item>"R D' R' R' D R U' R' D' R U R D R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_DX">
+        <item>"y' x' R U R' D2 R U' R' D2 x y"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EA">
+        <item>"B' L' U' L U' L' U2 L R U R' U R U2 R' B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EB">
+        <item>"R R D R' U R D' R' U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_ED">
+        <item>"U' R U2 R D R' U2 R D' R' R' U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EF">
+        <item>"z U R' D' R U' R' D R z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EG">
+        <item>"B' R' D R U R' D' R U' B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EH">
+        <item>"B' x R2 D2 R U R' D2 R U' R x' B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EI">
+        <item>"L' L' D' L U2 L' D L U2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EK">
+        <item>"L2 D U R U' R' D' R U R' U' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EL">
+        <item>"L' D2 U' R' D' R U R' D R D2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EN">
+        <item>"L2 B U2 R' D R U2 R' D' R B' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EO">
+        <item>"R D R D R' U R D' R' U' D' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EP">
+        <item>"L' D2 R U R' D2 R U' R' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EQ">
+        <item>"B' U' D R D' R' U R D R' D' B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_ER">
+        <item>"B' R U2 R' U' R U' R' L' U2 L U L' U L B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_ES">
+        <item>"D B' R' D R U R' D' R U' B D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_ET">
+        <item>"R U R' D' R U R' D R U' R' R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EU">
+        <item>"L2 U2 R' D R U2 R' D' R L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EV">
+        <item>"D' R D U R' D' R U R' D R U' U' D' R' D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EW">
+        <item>"B2 D2 U2 R' D R U2 R' D' R D2 B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_EX">
+        <item>"L2 U' R' D R U R' D' R L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FA">
+        <item>"F R' D' R U2 R' D R U2 F'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FB">
+        <item>"R' U' R' D' R U R' D R R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FD">
+        <item>"L' B' R U2 R' U' R U' R' L' U2 L U L' U L B L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FE">
+        <item>"z R' D' R U R' D R U' z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FG">
+        <item>"z R' D' R U' R' D R U z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FH">
+        <item>"L' B' R' D R U R' D' R U' B L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FI">
+        <item>"L' B' L' U' L U' L' U2 L R U R' U R U2 R' B L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FK">
+        <item>"L D U R U' R' D' R U R' U' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FL">
+        <item>"F L' R' D' R U2 R' D R U2 L F'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FN">
+        <item>"L B U2 R' D R U2 R' D' R B' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FO">
+        <item>"L B U R' D R U' R' D' R B' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FP">
+        <item>"L2 D2 R U R' D2 R U' R' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FQ">
+        <item>"x' U R U' R' D R U R' U' D' x"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FR">
+        <item>"L U' R' D R U R' D' R L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FS">
+        <item>"L U2 R' D R U2 R' D' R L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FT">
+        <item>"L2 D' D' R U R' D R U' R' D L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FU">
+        <item>"L2 D2 U2 R' D' R U2 R' D R D2 L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FV">
+        <item>"R' F D D2 R U R' D2 R U' R' D' F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FW">
+        <item>"z D2 R U R' D2 R U' R' z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_FX">
+        <item>"L2 D2 U' R' D' R U R' D R D2 L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GA">
+        <item>"U2 R' D R U2 R' D' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GB">
+        <item>"U R' D R U' R' D' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GD">
+        <item>"U' R' D R U R' D' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GE">
+        <item>"B' U R' D R U' R' D' R B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GF">
+        <item>"z U' R' D' R U R' D R z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GH">
+        <item>"B' U2 R' D R U2 R' D' R B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GI">
+        <item>"D L' U2 D' R' D R U2 R' D' R D L D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GK">
+        <item>"D U R U' R' D' R U R' U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GL">
+        <item>"L2 B' R U2 R' U' R U' R' L' U2 L U L' U L B L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GN">
+        <item>"B U2 R' D R U2 R' D' R B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GO">
+        <item>"U D' D2 R U' R' D2 R U R' D U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GP">
+        <item>"L D2 R U R' D2 R U' R' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GQ">
+        <item>"z U' D' R U R' D R U' R' U z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GR">
+        <item>"D L U' D' R' D R U R' D' R D L' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GS">
+        <item>"U D2 D' R U' R' D R U R' D2 U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GT">
+        <item>"L D' D' R U R' D R U' R' D L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GU">
+        <item>"L2 B' L' U' L U' L' U2 L R U R' U R U2 R' B L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GV">
+        <item>"U R2 U R' D R U2 R' D' R U2 U' R2 U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GW">
+        <item>"F' R U' R' D' R U R' D F"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_GX">
+        <item>"F' R U' R' D2 R U R' D2 F"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HA">
+        <item>"D2 U2 R' D' R U2 R' D R D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HB">
+        <item>"R D' R' U' R D R' U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HD">
+        <item>"D2 U' R' D' R U R' D R D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HE">
+        <item>"B' x R' U R' D2 R U' R' D2 R2 x' B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HF">
+        <item>"L' B' U R' D R U' R' D' R B L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HG">
+        <item>"B' R' D R U2 R' D' R U2 B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HI">
+        <item>"L' U2 R' D R U2 R' D' R L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HK">
+        <item>"L' D U R U' R' D' R U R' U' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HL">
+        <item>"D D R U R' D' R U' R' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HN">
+        <item>"L' B U2 R' D R U2 R' D' R B' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HO">
+        <item>"L' B U R' D R U' R' D' R B' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HP">
+        <item>"D2 R U R' D2 R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HQ">
+        <item>"U R' U' D2 R U R' D2 R U' R' U R U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HR">
+        <item>"D2 L U' R' D' R U R' D R L' D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HS">
+        <item>"B2 L' U' L U' L' U2 L R U R' U R U2 R' B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HT">
+        <item>"D' D' R U R' D R U' R' D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HU">
+        <item>"U' F' U D2 R U R' D2 R U' R' U' F U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HV">
+        <item>"D2 L2 U' R' D' R U R' D R L2 D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HW">
+        <item>"z U2 D2 R U R' D2 R U' R' U2 z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_HX">
+        <item>"B2 R U2 R' U' R U' R' L' U2 L U L' U L B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IA">
+        <item>"L' U2 D' L' D L U2 L' D' L D L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IB">
+        <item>"R R D R' U2 R D' R' U2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_ID">
+        <item>"L' B' L' U' L U' L' U2 L R U R' U R U2 R' B L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IE">
+        <item>"L' U2 L' D' L U2 L' D L L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IF">
+        <item>"L' B' R U2 R' U' R U' R' L' U2 L U L' U L B L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IG">
+        <item>"D L' D' R' D R U2 R' D' R D U2 L D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IH">
+        <item>"L' R' D R U2 R' D' R U2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IK">
+        <item>"L2 U D2 R U' R' D2 R U R' U' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IL">
+        <item>"D L' R' D' R U2 R' D R U2 L D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IN">
+        <item>"L' R D2 R' R' D R U2 R' D' R U2 R D2 R' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IO">
+        <item>"L' U' R D R' U2 R D' R' U2 U L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IP">
+        <item>"L' R' D' R U2 R' D R U2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IQ">
+        <item>"L x' U R U' R' D2 R U R' U' D2 x L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IR">
+        <item>"R U R' D' U2 R' D R U2 R' D' R D R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IS">
+        <item>"D2 L' D' R' D R U2 R' D' R D U2 L D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IT">
+        <item>"D' L' R' D' R U2 R' D R U2 L D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IU">
+        <item>"L2 D U2 R' D R U2 R' D' R D' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IV">
+        <item>"L D R U2 R' U' R U R' D' R U' R' U R U2 R' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IW">
+        <item>"B' L' R' D R U2 R' D' R U2 L B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_IX">
+        <item>"L' D R' D' R U2 R' D R U2 D' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KA">
+        <item>"D' U2 R' D R U2 R' D' R D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KB">
+        <item>"D' U R' D R U' R' D' R D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KD">
+        <item>"D' U' R' D R U R' D' R D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KE">
+        <item>"L2 U R U' R' D R U R' U' D' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KF">
+        <item>"L U R U' R' D R U R' U' D' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KG">
+        <item>"U R U' R' D R U R' U' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KH">
+        <item>"L' U R U' R' D R U R' U' D' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KI">
+        <item>"L2 U R U' R' D2 R U R' D2 U' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KL">
+        <item>"L' U' D' R' D R U R' D' R D L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KN">
+        <item>"B U2 D' R' D R U2 R' D' R D B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KO">
+        <item>"U R U' R' D' R U R' U' D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KP">
+        <item>"D B R U2 R' U' R U' R' L' U2 L U L' U L B' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KQ">
+        <item>"B L U' D' R' D R U R' D' R D L' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KR">
+        <item>"L U' D' R' D R U R' D' R D L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KS">
+        <item>"U R U' R' D2 R U R' D2 U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KT">
+        <item>"B' U R U' R' D2 R U R' U' D2 B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KU">
+        <item>"L U R U' R' D2 R U R' U' D2 L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KV">
+        <item>"D B L' U' L U' L' U2 L R U R' U R U2 R' B' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KW">
+        <item>"U R U' D' R' D R U R' D' R D R' U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_KX">
+        <item>"L2 U' D' R' D R U R' D' R D L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LA">
+        <item>"D U2 R' D' R U2 R' D R D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LB">
+        <item>"D U R' D' R U' R' D R D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LD">
+        <item>"D U' R' D' R U R' D R D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LE">
+        <item>"L' D2 R' D' R U' R' D R U D2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LF">
+        <item>"F L' U2 R' D' R U2 R' D R L F'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LG">
+        <item>"L2 B' L' U' L U' L' U2 L R U R' U R U2 R' B L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LH">
+        <item>"D R U R' D R U' R' D' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LI">
+        <item>"D L' U2 R' D' R U2 R' D R L D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LK">
+        <item>"L' D' R' D R U' R' D' R D U L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LN">
+        <item>"B D U2 R' D' R U2 R' D R D' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LO">
+        <item>"L' D2 R' D R U' R' D' R U D2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LP">
+        <item>"D R U R' D' R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LQ">
+        <item>"U R' U' D R U R' D' R U' R' U R U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LR">
+        <item>"D L2 R U R' D R U' R' D' L2 D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LS">
+        <item>"B D R U R' D2 R U' R' D2 D' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LT">
+        <item>"D R U R' D2 R U' R' D2 D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LU">
+        <item>"L2 B' R U2 R' U' R U' R' L' U2 L U L' U L B L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LV">
+        <item>"U R' U' D R U R' D2 R U' R' D2 D' U R U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LW">
+        <item>"z D2 R U' R' D2 R U R' z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_LX">
+        <item>"L' D R' D' R U' R' D R U D' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NA">
+        <item>"R D2 R' U2 R' D R U2 R' D' R R D2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NB">
+        <item>"R U2 R' U' R U' R' L' U2 L U L' U L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_ND">
+        <item>"B2 D2 U' R' D' R U R' D R D2 B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NE">
+        <item>"L2 B R' D R U2 R' D' R U2 B' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NF">
+        <item>"L B R' D R U2 R' D' R U2 B' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NG">
+        <item>"B R' D R U2 R' D' R U2 B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NH">
+        <item>"L' B R' D R U2 R' D' R U2 B' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NI">
+        <item>"L' R D2 R' U2 R' D R U2 R' D' R R D2 R' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NK">
+        <item>"B D' R' D R U2 R' D' R D U2 B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NL">
+        <item>"B D R' D' R U2 R' D R U2 D' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NO">
+        <item>"B x R' U R' D2 R U' R' D2 R2 x' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NP">
+        <item>"B R' D' R U2 R' D R U2 B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NQ">
+        <item>"L' U' L U' L' U2 L R U R' U R U2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NR">
+        <item>"B U2 D' L' D L U2 L' D' L D B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NS">
+        <item>"L R D2 R' U2 R' D R U2 R' D' R R D2 R' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NT">
+        <item>"D' B R' D' R U2 R' D R U2 B' D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NU">
+        <item>"R' U R' U' D R U R' D2 R U' R' D2 D' U R U' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NV">
+        <item>"B' D' R U2 R' U' R U R' D R U' R' U R U2 R' B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NW">
+        <item>"F2 R' U' R D2 R' U R D2 F2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_NX">
+        <item>"B D2 R' D R U2 R' D' R U2 D2 B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OA">
+        <item>"D2 U2 R' D R U2 R' D' R D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OB">
+        <item>"D2 U R' D R U' R' D' R D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OD">
+        <item>"D2 U' R' D R U R' D' R D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OE">
+        <item>"R D U R D R' U' R D' R' D' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OF">
+        <item>"L B R' D R U R' D' R U' B' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OG">
+        <item>"U D' R U' R' D2 R U R' D2 D U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OH">
+        <item>"L' B R' D R U R' D' R U' B' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OI">
+        <item>"L' U' U2 R D R' U2 R D' R' U L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OK">
+        <item>"D' U R U' R' D R U R' U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OL">
+        <item>"L' D2 U' R' D R U R' D' R D2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_ON">
+        <item>"B x R2 D2 R U R' D2 R U' R x' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OP">
+        <item>"R D' R' D R U R' D' R D U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OQ">
+        <item>"R' B U2 D' R' D R U2 R' D' R D B' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OR">
+        <item>"B D R' D R U R' D' R U' D' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OS">
+        <item>"U' R' U' R D' R' U R D U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OT">
+        <item>"B R U2 R' U' R U' R' L' U2 L U L' U L B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OU">
+        <item>"L2 L' D L U2 L' D' L U2 L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OV">
+        <item>"D' L2 U2 D' R' D R U2 R' D' R D L2 D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OW">
+        <item>"B L' U' L U' L' U2 L R U R' U R U2 R' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_OX">
+        <item>"B D2 R' D R U R' D' R U' D2 B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PA">
+        <item>"U2 R' D' R U2 R' D R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PB">
+        <item>"U R' D' R U' R' D R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PD">
+        <item>"U' R' D' R U R' D R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PE">
+        <item>"L' R U R' D2 R U' R' D2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PF">
+        <item>"L2 R U R' D2 R U' R' D2 L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PG">
+        <item>"L R U R' D2 R U' R' D2 L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PH">
+        <item>"R U R' D2 R U' R' D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PI">
+        <item>"L' U2 R' D' R U2 R' D R L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PK">
+        <item>"D B L' U' L U' L' U2 L R U R' U R U2 R' B' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PL">
+        <item>"R U R' D R U' R' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PN">
+        <item>"B U2 R' D' R U2 R' D R B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PO">
+        <item>"R U D' R' D R U' R' D' R D R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PQ">
+        <item>"R' U R U' R' D' R U R' U' D R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PR">
+        <item>"x' R U' R' D' R U R' D x"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PS">
+        <item>"L U2 R' D' R U2 R' D R L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PT">
+        <item>"R U R' D' R U' R' D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PU">
+        <item>"L2 U2 R' D' R U2 R' D R L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PV">
+        <item>"D B R U2 R' U' R U' R' L' U2 L U L' U L B' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PW">
+        <item>"B2 U2 R' D' R U2 R' D R B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_PX">
+        <item>"L2 U' R' D' R U R' D R L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QA">
+        <item>"R' D' R' D R U2 R' D' R D U2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QB">
+        <item>"L' U' L U' L' U2 L R U R' U R U2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QD">
+        <item>"R' D' R' D R U' R' D' R D U R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QE">
+        <item>"B' D R D' R' U' R D R' D' U B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QF">
+        <item>"x' D U R U' R' D' R U R' U' x"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QG">
+        <item>"z U' R U R' D' R U' R' D U z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QH">
+        <item>"U R' U' R U R' D2 R U' R' D2 U R U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QI">
+        <item>"L x' D2 U R U' R' D2 R U R' U' x L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QK">
+        <item>"B L D' R' D R U' R' D' R D U L' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QL">
+        <item>"U R' U' R U R' D R U' R' D' U R U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QN">
+        <item>"R U2 R' U' R U' R' L' U2 L U L' U L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QO">
+        <item>"R' B D' R' D R U2 R' D' R D U2 B' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QP">
+        <item>"R' D' U R U' R' D R U R' U' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QR">
+        <item>"R U' L' U R' U' L U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QS">
+        <item>"x U' R' U R D2 R' U' R U D2 x'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QT">
+        <item>"x U' R' U R D R' U' R U D' x'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QU">
+        <item>"R U' R' U R D2 R' U' R D2 U R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QV">
+        <item>"U R' U' R U R' D' R U' R' D U R U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QW">
+        <item>"B2 D U2 R' D R U2 R' D' R D' B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_QX">
+        <item>"B2 D U R' D R U' R' D' R D' B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RA">
+        <item>"B' R U2 R' U' R U' R' L' U2 L U L' U L B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RB">
+        <item>"R' U2 R' D' R U2 R' D R R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RD">
+        <item>"L D R' D' R U' R' D R U D' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RE">
+        <item>"B' L' U' L U' L' U2 L R U R' U R U2 R' B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RF">
+        <item>"L R' D R U' R' D' R U L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RG">
+        <item>"D L D' R' D R U' R' D' R D U L' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RH">
+        <item>"D2 L R' D' R U' R' D R U L' D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RI">
+        <item>"R U R' D' R' D R U2 R' D' R U2 D R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RK">
+        <item>"L D' R' D R U' R' D' R D U L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RL">
+        <item>"D L2 D R U R' D' R U' R' L2 D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RN">
+        <item>"B D' L' D L U2 L' D' L D U2 B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RO">
+        <item>"B D U R' D R U' R' D' R D' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RP">
+        <item>"x' D' R U' R' D R U R' x"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RQ">
+        <item>"U' L' U R U' L U R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RS">
+        <item>"R' U2 D2 R U R' D2 R U' R' U2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RT">
+        <item>"L D' R' D' R U' R' D R U D L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RU">
+        <item>"L D R' D R U' R' D' R U D' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RV">
+        <item>"L' D2 R U2 R' U' R U R' D2 R U' R' U R U2 R' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RW">
+        <item>"B2 D' U2 R' D' R U2 R' D R D B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_RX">
+        <item>"L2 D U' R' D' R U R' D R D' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SA">
+        <item>"D U2 R' D R U2 R' D' R D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SB">
+        <item>"D U R' D R U' R' D' R D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SD">
+        <item>"U' R' D2 R U R' D2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SE">
+        <item>"D B' U R' D R U' R' D' R B D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SF">
+        <item>"L R' D R U2 R' D' R U2 L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SG">
+        <item>"U D2 R U' R' D' R U R' D D2 U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SH">
+        <item>"B2 R U2 R' U' R U' R' L' U2 L U L' U L B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SI">
+        <item>"D2 L' U2 D' R' D R U2 R' D' R D L D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SK">
+        <item>"U D2 R U' R' D2 R U R' U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SL">
+        <item>"B D D2 R U R' D2 R U' R' D' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SN">
+        <item>"L R D2 R' R' D R U2 R' D' R U2 R D2 R' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SO">
+        <item>"U' D' R' U' R D R' U R U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SP">
+        <item>"L R' D' R U2 R' D R U2 L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SQ">
+        <item>"x D2 U' R' U R D2 R' U' R U x'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SR">
+        <item>"R' U2 R U R' D2 R U' R' D2 U2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_ST">
+        <item>"L D' R' D' R U2 R' D R U2 D L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SU">
+        <item>"L D R' D R U2 R' D' R U2 D' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SV">
+        <item>"R2 U2 R R U' R' D2 R U R' D2 R' U2 R2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SW">
+        <item>"R2 U R R U' R' D2 R U R' D2 R' U' R2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_SX">
+        <item>"B2 L' U' L U' L' U2 L R U R' U R U2 R' B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TA">
+        <item>"D' U2 R' D' R U2 R' D R D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TB">
+        <item>"D' U R' D' R U' R' D R D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TD">
+        <item>"D' U' R' D' R U R' D R D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TE">
+        <item>"R U R' R U R' D' R U' R' D R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TF">
+        <item>"L2 D' R U R' D' R U' R' D D L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TG">
+        <item>"L D' R U R' D' R U' R' D D L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TH">
+        <item>"D' R U R' D' R U' R' D D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TI">
+        <item>"D' L' U2 R' D' R U2 R' D R L D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TK">
+        <item>"B' D2 U R U' R' D2 R U R' U' B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TL">
+        <item>"D D2 R U R' D2 R U' R' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TN">
+        <item>"D' B U2 R' D' R U2 R' D R B' D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TO">
+        <item>"B L' U' L U' L' U2 L R U R' U R U2 R' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TP">
+        <item>"D' R U R' D R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TQ">
+        <item>"x D U' R' U R D' R' U' R U x'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TR">
+        <item>"L D' U' R' D' R U R' D R D L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TS">
+        <item>"L D' U2 R' D' R U2 R' D R D L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TU">
+        <item>"L2 D' U2 R' D' R U2 R' D R D L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TV">
+        <item>"R' F U' R' U R D2 R' U' R U D2 F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TW">
+        <item>"B R U2 R' U' R U' R' L' U2 L U L' U L B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_TX">
+        <item>"L2 D' U' R' D' R U R' D R D L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UA">
+        <item>"R D R' D' U2 R' D' R U2 R' D R D R D' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UB">
+        <item>"x' R U R' D2 R U' R' D2 x"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UD">
+        <item>"U' x' D2 R U R' D2 R U' R' x U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UE">
+        <item>"L2 R' D R U2 R' D' R U2 L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UF">
+        <item>"L2 D2 R' D' R U2 R' D R U2 D2 L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UG">
+        <item>"L2 B' R U2 R' U' R U' R' L' U2 L U L' U L B L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UH">
+        <item>"U' F' U R U R' D2 R U' R' D2 U' F U"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UI">
+        <item>"L2 D R' D R U2 R' D' R U2 D' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UK">
+        <item>"L D2 U R U' R' D2 R U R' U' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UL">
+        <item>"L2 B' L' U' L U' L' U2 L R U R' U R U2 R' B L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UN">
+        <item>"R' U R' U' D D2 R U R' D2 R U' R' D' U R U' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UO">
+        <item>"L2 U2 L' D L U2 L' D' L L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UP">
+        <item>"L2 R' D' R U2 R' D R U2 L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UQ">
+        <item>"R U' D2 R' U R D2 R' U' R U R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UR">
+        <item>"L D U' R' D R U R' D' R D' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_US">
+        <item>"L D U2 R' D R U2 R' D' R D' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UT">
+        <item>"L2 D' R' D' R U2 R' D R U2 D L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UV">
+        <item>"D R U2 R' U' R U R' D' R U' R' U R U2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UW">
+        <item>"D R U2 R' U' R U R' D2 R U' R' U R U2 R' D2 D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_UX">
+        <item>"D R U2 R' U' R U R' D R U' R' U R U2 R' D' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VA">
+        <item>"R' F R' R D2 R' U R D2 R' U' R F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VB">
+        <item>"R' B' R U R' D2 R U' R' D2 B R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VD">
+        <item>"R' F D' D2 U R U' R' D2 R U R' U' D F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VE">
+        <item>"D' R D U U R' D' R U' R' D R U' D' R' D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VF">
+        <item>"R' F D R U R' D2 R U' R' D2 D' F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VG">
+        <item>"U R2 U U2 R' D R U2 R' D' R U' R2 U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VH">
+        <item>"D2 L2 R' D' R U' R' D R U L2 D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VI">
+        <item>"L R U2 R' U' R U R' D R U' R' U R U2 R' D' L'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VK">
+        <item>"D B R U2 R' U' R U' R' L' U2 L U L' U L B' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VL">
+        <item>"U R' U' D D2 R U R' D2 R U' R' D' U R U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VN">
+        <item>"B' R U2 R' U' R U R' D' R U' R' U R U2 R' D B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VO">
+        <item>"D' L2 D' R' D R U2 R' D' R D U2 L2 D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VP">
+        <item>"D B L' U' L U' L' U2 L R U R' U R U2 R' B' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VQ">
+        <item>"U R' U' D' R U R' D R U' R' U R U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VR">
+        <item>"L' R U2 R' U' R U R' D2 R U' R' U R U2 R' D2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VS">
+        <item>"R2 U2 R D2 R U' R' D2 R U R' R' U2 R2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VT">
+        <item>"R' F D2 U' R' U R D2 R' U' R U F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VU">
+        <item>"R U2 R' U' R U R' D R U' R' U R U2 R' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VW">
+        <item>"R' F D2 R' U' R D2 R' U R F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_VX">
+        <item>"R U2 R' U' R U R' D2 R U' R' U R U2 R' D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WA">
+        <item>"R D' R' U2 R' D R U2 R' D' R R D R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WB">
+        <item>"R' B2 R U R' D2 R U' R' D2 B2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WD">
+        <item>"R D' R' U' R' D R U R' D' R R D R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WE">
+        <item>"B2 D2 R' D R U2 R' D' R U2 D2 B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WF">
+        <item>"z R U R' D2 R U' R' D2 z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WG">
+        <item>"F' D' R U' R' D R U R' F"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WH">
+        <item>"z U2 R U R' D2 R U' R' D2 U2 z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WI">
+        <item>"B' L' U2 R' D R U2 R' D' R L B"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WK">
+        <item>"U R D' R' D R U' R' D' R D U R' U'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WL">
+        <item>"z R U' R' D2 R U R' D2 z'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WN">
+        <item>"F2 D2 R' U' R D2 R' U R F2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WO">
+        <item>"B R U2 R' U' R U' R' L' U2 L U L' U L B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WP">
+        <item>"B2 R' D' R U2 R' D R U2 B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WQ">
+        <item>"B2 D R' D R U2 R' D' R U2 D' B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WR">
+        <item>"B2 D' R' D' R U2 R' D R U2 D B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WS">
+        <item>"R2 U R D2 R U' R' D2 R U R' R' U' R2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WT">
+        <item>"B L' U' L U' L' U2 L R U R' U R U2 R' B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WU">
+        <item>"D D2 R U2 R' U' R U R' D2 R U' R' U R U2 R' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WV">
+        <item>"R' F R' U' R D2 R' U R D2 F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_WX">
+        <item>"D' R U2 R' U' R U R' D' R U' R' U R U2 R' D D"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XA">
+        <item>"D2 U2 R' D2 R D R' D' R U2 R' D R D' R' D2 R D2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XB">
+        <item>"x' U2 R' D' R U2 R' D R x"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XD">
+        <item>"y' x' D2 R U R' D2 R U' R' x y"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XE">
+        <item>"L2 R' D R U' R' D' R U L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XF">
+        <item>"L2 D2 R' D' R U' R' D R U D2 L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XG">
+        <item>"F' D2 R U' R' D2 R U R' F"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XH">
+        <item>"B2 L' U' L U' L' U2 L R U R' U R U2 R' B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XI">
+        <item>"L' D U2 R' D' R U2 R' D R D' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XK">
+        <item>"L2 D' R' D R U' R' D' R D U L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XL">
+        <item>"L' D U' R' D' R U R' D R D' L"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XN">
+        <item>"B D2 U2 R' D R U2 R' D' R D2 B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XO">
+        <item>"B D2 U R' D R U' R' D' R D2 B'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XP">
+        <item>"L2 R' D' R U' R' D R U L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XQ">
+        <item>"B2 D R' D R U R' D' R U' D' B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XR">
+        <item>"L2 D R' D' R U' R' D R U D' L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XS">
+        <item>"B2 R U2 R' U' R U' R' L' U2 L U L' U L B2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XT">
+        <item>"L2 D' R' D' R U' R' D R U D L2"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XU">
+        <item>"D D R U2 R' U' R U R' D' R U' R' U R U2 R' D'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XV">
+        <item>"D2 R U2 R' U' R U R' D2 R U' R' U R U2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_THREE_STYLE_CORNERS_XW">
+        <item>"D' D' R U2 R' U' R U R' D R U' R' U R U2 R' D"</item>
+    </string-array>
 </resources>

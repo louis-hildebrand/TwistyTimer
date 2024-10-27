@@ -15,6 +15,8 @@ import com.aricneto.twistytimer.utils.PuzzleUtils;
 import net.gnehzr.tnoodle.scrambles.InvalidScrambleException;
 import net.gnehzr.tnoodle.scrambles.Puzzle;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,22 +51,26 @@ public abstract class TrainerScrambler {
     // implementation, causing crashes.
     public static final String KEY_TRAINER = "TRAINER_V2";
 
-    public static enum TrainerSubset {
-        OLL, PLL
-    };
+    public enum TrainerSubset {
+        OLL,
+        PLL,
+        THREE_STYLE_CORNERS;
 
-    /**
-     *  Amount of different variations for each registered subset
-     */
-    private static int getSubsetVariations(TrainerSubset subset) {
-        switch (subset) {
-            case OLL:
-                return 57;
-            case PLL:
-                return 0;
+        @Override
+        @NotNull
+        public String toString() {
+            switch (this) {
+                case OLL:
+                    return "OLL";
+                case PLL:
+                    return "PLL";
+                case THREE_STYLE_CORNERS:
+                    return "3-style corners";
+                default:
+                    throw new IllegalArgumentException("Unknown trainer subset.");
+            }
         }
-        return 0;
-    }
+    };
 
     /**
      * Saves selected cases to preferences, to be fetched later
@@ -136,7 +142,11 @@ public abstract class TrainerScrambler {
             scramble = context.getString(R.string.trainer_help_message);
         }
 
-        return PuzzleUtils.applyRotationForAlgorithm(scramble, Y_ROTATIONS[random.nextInt(4)]);
+        if (subset == TrainerSubset.OLL || subset == TrainerSubset.PLL) {
+            return PuzzleUtils.applyRotationForAlgorithm(scramble, Y_ROTATIONS[random.nextInt(4)]);
+        } else {
+            return scramble;
+        }
     }
 
     private static String fetchCaseAlgorithm(Context context, String subset, String name) {
@@ -163,7 +173,4 @@ public abstract class TrainerScrambler {
 
         return "U";
     }
-
 }
-
-

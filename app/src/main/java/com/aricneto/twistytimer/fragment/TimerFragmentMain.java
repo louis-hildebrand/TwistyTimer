@@ -330,7 +330,7 @@ public class TimerFragmentMain extends BaseFragment implements OnBackPressedInFr
         updateHistorySwitchItem();
         puzzleCategoryText.setText(currentPuzzleCategory.toLowerCase());
         if (currentTimerMode.equals(TIMER_MODE_TRAINER))
-            puzzleNameText.setText(getString(R.string.title_trainer, currentPuzzleSubset.name()));
+            puzzleNameText.setText(getString(R.string.title_trainer, currentPuzzleSubset.toString()));
         else
             puzzleNameText.setText(PuzzleUtils.getPuzzleNameFromType(currentPuzzle));
     }
