@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -51,7 +50,7 @@ public class TrainerCursorAdapter extends AlgCursorAdapter {
                 Color.BLACK, 14, 2);
 
         selectedItems = new ArrayList<>();
-        selectedItems.addAll(TrainerScrambler.fetchSelectedItems(subset, category));
+        selectedItems.addAll(TrainerScrambler.fetchCaseSelection(subset, category));
 
         this.currentSubset = subset;
         this.currentPuzzleCategory = category;
@@ -80,24 +79,9 @@ public class TrainerCursorAdapter extends AlgCursorAdapter {
                 }
                 break;
             case THREE_STYLE_CORNERS:
-                // TODO: Add preference for buffer position?
-                // TODO: Add preference for lettering scheme?
-                ArrayList<Character> nonBufferStickers = new ArrayList<Character>(21);
-                for (char c = 'A'; c <= 'X'; c++) {
-                    if (c != 'C' && c != 'J' && c != 'M') {
-                        nonBufferStickers.add(c);
-                    }
-                }
-                for (char c1 : nonBufferStickers) {
-                    for (char c2 : nonBufferStickers) {
-                        if (c1 != c2) {
-                            selectedItems.add("" + c1 + c2);
-                        }
-                    }
-                }
-                break;
+                throw new IllegalArgumentException("TrainerCursorAdapter should not be used for 3-style corners.");
         }
-        TrainerScrambler.saveSelectedItems(currentSubset, currentPuzzleCategory, selectedItems);
+        TrainerScrambler.saveCaseSelection(currentSubset, currentPuzzleCategory, selectedItems);
     }
 
     private void toggleSelection(String name, CardView card) {
@@ -108,7 +92,7 @@ public class TrainerCursorAdapter extends AlgCursorAdapter {
             selectedItems.remove(name);
             card.setBackground(cardBackground);
         }
-        TrainerScrambler.saveSelectedItems(currentSubset, currentPuzzleCategory, selectedItems);
+        TrainerScrambler.saveCaseSelection(currentSubset, currentPuzzleCategory, selectedItems);
     }
 
     @Override

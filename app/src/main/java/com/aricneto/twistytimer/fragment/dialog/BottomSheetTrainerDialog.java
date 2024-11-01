@@ -1,5 +1,6 @@
 package com.aricneto.twistytimer.fragment.dialog;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -128,6 +129,7 @@ public class BottomSheetTrainerDialog extends BottomSheetDialogFragment implemen
         mUnbinder = ButterKnife.bind(this, dialogView);
 
         titleView.setText(R.string.trainer_spinner_title);
+        @SuppressLint("ResourceType")
         Drawable icon = ThemeUtils.tintDrawable(getContext(), R.drawable.ic_outline_control_camera_24px,
                                                 ContextCompat.getColor(getContext(), R.color.md_blue_A700));
         titleView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);

@@ -12,6 +12,7 @@ import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.aricneto.twistytimer.fragment.dialog.BottomSheetTrainerRegexDialog;
 import com.aricneto.twistytimer.fragment.dialog.CategorySelectDialog;
 import com.aricneto.twistytimer.fragment.dialog.BottomSheetTrainerDialog;
 import com.aricneto.twistytimer.fragment.dialog.PuzzleSelectDialog;
@@ -648,11 +649,12 @@ public class TimerFragmentMain extends BaseFragment implements OnBackPressedInFr
     }
 
     private void handleHeaderSpinner() {
-
-
         // Setup action bar click listener
         puzzleSpinnerLayout.setOnClickListener(v -> {
-            if (currentTimerMode.equals(TimerFragment.TIMER_MODE_TRAINER)) {
+            if (TimerFragment.TIMER_MODE_TRAINER.equals(currentTimerMode) && currentPuzzleSubset == TrainerScrambler.TrainerSubset.THREE_STYLE_CORNERS) {
+                BottomSheetTrainerRegexDialog dialog = BottomSheetTrainerRegexDialog.newInstance(currentPuzzleSubset, currentPuzzleCategory);
+                dialog.show(mFragmentManager, "trainer_regex_dialog_fragment");
+            } else if (TIMER_MODE_TRAINER.equals(currentTimerMode)) {
                 BottomSheetTrainerDialog bottomSheetTrainerDialog = BottomSheetTrainerDialog.newInstance(currentPuzzleSubset, currentPuzzleCategory);
                 bottomSheetTrainerDialog.show(mFragmentManager, "trainer_dialog_fragment");
             }
@@ -665,7 +667,6 @@ public class TimerFragmentMain extends BaseFragment implements OnBackPressedInFr
         });
 
         updatePuzzleSpinnerHeader();
-
     }
 
     // A new puzzle has been selected

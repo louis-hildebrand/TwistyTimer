@@ -435,4 +435,6 @@
     <string name="list_sort_ascending">Ascending</string>
     <string name="list_sort_descending">Descending</string>
 
+    <string name="num_cases_selected">%1$d cases selected</string>
+
 </resources>
