@@ -102,7 +102,7 @@ public class BottomSheetTrainerRegexDialog extends BottomSheetDialogFragment {
             initialRegex = s;
             break;
         }
-        int initialNumCases = TrainerScrambler.fetchSelectedCases(currentSubset, currentCategory).size();
+        int initialNumCases = TrainerScrambler.fetchSelectedCaseSet(currentSubset, currentCategory).size();
         numCasesSelected.setText(getString(R.string.num_cases_selected, initialNumCases));
         casesRegex.setText(initialRegex);
         casesRegex.addTextChangedListener(new TextWatcher() {
@@ -119,7 +119,7 @@ public class BottomSheetTrainerRegexDialog extends BottomSheetDialogFragment {
                 try {
                     Pattern.compile(str);
                     TrainerScrambler.saveCaseSelection(currentSubset, currentCategory, List.of(str));
-                    int numCases = TrainerScrambler.fetchSelectedCases(currentSubset, currentCategory).size();
+                    int numCases = TrainerScrambler.fetchSelectedCaseSet(currentSubset, currentCategory).size();
                     numCasesSelected.setText(getString(R.string.num_cases_selected, numCases));
                     casesRegex.setError(null);
                 }

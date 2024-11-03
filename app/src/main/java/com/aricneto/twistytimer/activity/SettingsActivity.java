@@ -33,6 +33,7 @@ import com.aricneto.twistify.R;
 import com.aricneto.twistytimer.fragment.dialog.CrossHintFaceSelectDialog;
 import com.aricneto.twistytimer.fragment.dialog.LocaleSelectDialog;
 import com.aricneto.twistytimer.listener.OnBackPressedInFragmentListener;
+import com.aricneto.twistytimer.puzzle.LetterScheme;
 import com.aricneto.twistytimer.utils.LocaleUtils;
 import com.aricneto.twistytimer.utils.Prefs;
 import com.aricneto.twistytimer.utils.ThemeUtils;
@@ -146,6 +147,7 @@ public class SettingsActivity extends AppCompatActivity {
                         R.string.pk_scramble_text_size,
                         R.string.pk_advanced_timer_settings_enabled,
                         R.string.pk_stat_trim_size,
+                        R.string.pk_corner_letter_scheme,
                         R.string.pk_stat_acceptable_dnf_size,
                         R.string.pk_timer_animation_duration)) {
 
@@ -266,6 +268,9 @@ public class SettingsActivity extends AppCompatActivity {
                         trimChangeListener.onProgressChanged(trimSeekBar, trimSeekBar.getProgress(), false);
                         trimDialogView.show();
                         break;
+                    case R.string.pk_corner_letter_scheme:
+                        createLetterSchemeDialog(R.string.pk_corner_letter_scheme, R.string.corner_letter_scheme);
+                        break;
                     case R.string.pk_stat_acceptable_dnf_size:
                         MaterialDialog dnfDialogView = createAverageSeekDialog(R.string.pk_stat_acceptable_dnf_size,
                                                                      0,
@@ -345,7 +350,8 @@ public class SettingsActivity extends AppCompatActivity {
                     R.string.pk_stat_trim_size,
                     // TODO: this seems to be missing
                     // R.string.pk_stat_acceptable_dnf_size,
-                    R.string.pk_timer_animation_duration
+                    R.string.pk_timer_animation_duration,
+                    R.string.pk_corner_letter_scheme
             };
 
             for (int prefId : listenerPrefIds) {
@@ -398,6 +404,27 @@ public class SettingsActivity extends AppCompatActivity {
                 return true;
             }
             return false;
+        }
+
+        private void createLetterSchemeDialog(final int prefKeyResID, @StringRes int title) {
+            ThemeUtils.roundAndShowDialog(mContext, new MaterialDialog.Builder(mContext)
+                    .title(title)
+                    .input("", Prefs.getString(prefKeyResID, LetterScheme.SPEFFZ_LETTERS),
+                            (dialog, input) -> {
+                                try {
+                                    String s = input.toString();
+                                    new LetterScheme(s);
+                                    Prefs.edit().putString(prefKeyResID, s).apply();
+                                } catch (IllegalArgumentException e) {
+                                    // TODO: Show this without closing the popup?
+                                    Toast.makeText(getActivity(), R.string.invalid_letter_scheme, Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                    .positiveText(R.string.action_done)
+                    .negativeText(R.string.action_cancel)
+                    .neutralText(R.string.action_default)
+                    .onNeutral((dialog, which) -> Prefs.edit().putString(prefKeyResID, LetterScheme.SPEFFZ_LETTERS).apply())
+                    .build());
         }
 
         private void createNumberDialog(@StringRes int title, final int prefKeyResID) {

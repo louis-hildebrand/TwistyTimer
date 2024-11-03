@@ -223,6 +223,7 @@
     <string name="pref_category_title_timer">Timer</string>
     <string name="pref_screen_title_inspection_behavior">Inspection behavior</string>
     <string name="pref_screen_title_timer_behavior">Timer behavior</string>
+    <string name="pref_screen_title_trainer_behavior">Trainer behavior</string>
     <string name="pref_screen_title_timer_appearance">Timer appearance</string>
 
     <string name="pref_scramble_box_title">Scramble background</string>
@@ -436,5 +437,9 @@
     <string name="list_sort_descending">Descending</string>
 
     <string name="num_cases_selected">%1$d cases selected</string>
+    <string name="corner_letter_scheme_summary">Lettering scheme used to generate cases for blindfolded training</string>
+    <string name="corner_letter_scheme">Corner letter scheme</string>
+    <string name="default_corner_letter_scheme">ABCDEFGHIJKLMNOPQRSTUVWX</string>
+    <string name="invalid_letter_scheme">Invalid letter scheme</string>
 
 </resources>

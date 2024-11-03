@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 import java.util.Set;
 import java.util.regex.Pattern;
@@ -112,13 +111,21 @@ public abstract class TrainerScrambler {
     }
 
     /**
-     * Fetches the list of selected cases for the given subset and category.
+     * Fetches the set of selected cases for the given subset and category.
      */
-    public static Set<String> fetchSelectedCases(TrainerSubset subset, String category) {
+    public static Set<String> fetchSelectedCaseSet(TrainerSubset subset, String category) {
         Set<String> caseSelection = fetchCaseSelection(subset, category);
-        return subset == TrainerSubset.THREE_STYLE_CORNERS
-                ? findMatchingCases(getRegex(caseSelection))
-                : caseSelection;
+        if (subset == TrainerSubset.THREE_STYLE_CORNERS) {
+            String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
+            LetterScheme letterScheme = new LetterScheme(letterSchemeStr);
+            Pattern p = getRegex(caseSelection);
+            if (p == null) {
+                return new HashSet<>();
+            }
+            return findMatchingCases(letterScheme, p);
+        } else {
+            return caseSelection;
+        }
     }
 
     /**
@@ -142,27 +149,27 @@ public abstract class TrainerScrambler {
         }
     }
 
-    private static Set<String> findMatchingCases(Pattern p) {
+    private static Set<String> findMatchingCases(LetterScheme scheme, Pattern p) {
         // TODO: Add preference for buffer position?
-        // TODO: Add preference for lettering scheme?
+        if (scheme == null) {
+            throw new IllegalArgumentException("Missing letter scheme.");
+        }
         if (p == null) {
-            return new HashSet<>();
+            throw new IllegalArgumentException("Missing regex.");
         }
 
-        ArrayList<Character> nonBufferStickers = new ArrayList<>(21);
-        for (char c = 'A'; c <= 'X'; c++) {
-            if (c != 'C' && c != 'J' && c != 'M') {
-                nonBufferStickers.add(c);
-            }
-        }
+        Set<Character> bufferStickers = new HashSet<>(3);
+        bufferStickers.add(scheme.fromSpeffz("C").charAt(0));
+        bufferStickers.add(scheme.fromSpeffz("J").charAt(0));
+        bufferStickers.add(scheme.fromSpeffz("M").charAt(0));
+        Set<Character> nonBufferStickers = scheme.getLetters();
+        nonBufferStickers.removeAll(bufferStickers);
 
-        Set<String> selectedCases = new HashSet<String>();
+        Set<String> selectedCases = new HashSet<>();
         for (char c1 : nonBufferStickers) {
             for (char c2 : nonBufferStickers) {
-                if (c1 != c2) {
-                    if (p.matcher("" + c1 + c2).find()) {
-                        selectedCases.add("" + c1 + c2);
-                    }
+                if (c1 != c2 && p.matcher("" + c1 + c2).find()) {
+                    selectedCases.add(scheme.toSpeffz("" + c1 + c2));
                 }
             }
         }
@@ -174,7 +181,7 @@ public abstract class TrainerScrambler {
      * Generates a random trainer case from the selected cases
      */
     public static String generateTrainerCase(Context context, TrainerSubset subset, String category) {
-        List<String> allowedCases = new ArrayList<>(fetchSelectedCases(subset, category));
+        List<String> allowedCases = new ArrayList<>(fetchSelectedCaseSet(subset, category));
         String caseAlg = "";
         String scramble = "";
 
