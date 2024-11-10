@@ -158,12 +158,10 @@ public abstract class TrainerScrambler {
             throw new IllegalArgumentException("Missing regex.");
         }
 
-        Set<Character> bufferStickers = new HashSet<>(3);
-        bufferStickers.add(scheme.fromSpeffz("C").charAt(0));
-        bufferStickers.add(scheme.fromSpeffz("J").charAt(0));
-        bufferStickers.add(scheme.fromSpeffz("M").charAt(0));
         Set<Character> nonBufferStickers = scheme.getLetters();
-        nonBufferStickers.removeAll(bufferStickers);
+        nonBufferStickers.remove(scheme.fromSpeffz('C'));
+        nonBufferStickers.remove(scheme.fromSpeffz('J'));
+        nonBufferStickers.remove(scheme.fromSpeffz('M'));
 
         Set<String> selectedCases = new HashSet<>();
         for (char c1 : nonBufferStickers) {

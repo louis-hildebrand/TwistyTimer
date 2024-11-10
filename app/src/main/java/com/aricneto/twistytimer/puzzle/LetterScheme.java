@@ -58,6 +58,21 @@ public class LetterScheme {
 
     /**
      * Convert from this lettering scheme into the Speffz lettering scheme.
+     * For example, {@code new LetterScheme("ABCDQRSTEFGHIJKLMNOPUVWX").toSpeffz('L') == 'P'}.
+     *
+     * @param c A letter in this lettering scheme.
+     * @return The corresponding letter in the Speffz lettering scheme.
+     */
+    public char toSpeffz(char c) {
+        Character speffz = this.customLetterToSpeffzLetter.get(c);
+        if (speffz == null) {
+            throw new IllegalArgumentException(String.format("'%c' is not a valid letter in this scheme.", c));
+        }
+        return speffz;
+    }
+
+    /**
+     * Convert from this lettering scheme into the Speffz lettering scheme.
      * For example, {@code new LetterScheme("ABCDQRSTEFGHIJKLMNOPUVWX").toSpeffz("LH") == "PL"}.
      *
      * @param letters A string (e.g., a 3-style case) in this lettering scheme.
@@ -69,12 +84,24 @@ public class LetterScheme {
         }
         StringBuilder translatedString = new StringBuilder(letters.length());
         for (char custom : letters.toCharArray()) {
-            if (!this.customLetterToSpeffzLetter.containsKey(custom)) {
-                throw new IllegalArgumentException(String.format("'%c' is not a valid letter in this scheme.", custom));
-            }
-            translatedString.append(this.customLetterToSpeffzLetter.get(custom));
+            translatedString.append(this.toSpeffz(custom));
         }
         return translatedString.toString();
+    }
+
+    /**
+     * Convert from the Speffz lettering scheme into this lettering scheme.
+     * For example, {@code new LetterScheme("ABCDQRSTEFGHIJKLMNOPUVWX").fromSpeffz('L') == 'H'}.
+     *
+     * @param c A letter in the Speffz lettering scheme.
+     * @return The corresponding letter in this lettering scheme.
+     */
+    public char fromSpeffz(char c) {
+        Character custom = this.speffzLetterToCustomLetter.get(c);
+        if (custom == null) {
+            throw new IllegalArgumentException(String.format("'%c' is not a valid letter in the Speffz scheme.", c));
+        }
+        return custom;
     }
 
     /**
@@ -90,10 +117,7 @@ public class LetterScheme {
         }
         StringBuilder translatedString = new StringBuilder(letters.length());
         for (char speffz : letters.toCharArray()) {
-            if (!this.speffzLetterToCustomLetter.containsKey(speffz)) {
-                throw new IllegalArgumentException(String.format("'%c' is not a valid letter in the Speffz scheme.", speffz));
-            }
-            translatedString.append(this.speffzLetterToCustomLetter.get(speffz));
+            translatedString.append(this.fromSpeffz(speffz));
         }
         return translatedString.toString();
     }
