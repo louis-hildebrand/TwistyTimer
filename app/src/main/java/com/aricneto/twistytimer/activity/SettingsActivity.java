@@ -409,6 +409,8 @@ public class SettingsActivity extends AppCompatActivity {
         private void createLetterSchemeDialog(final int prefKeyResID, @StringRes int title) {
             ThemeUtils.roundAndShowDialog(mContext, new MaterialDialog.Builder(mContext)
                     .title(title)
+                    // TODO
+                    .content(R.string.corner_letter_scheme_hint)
                     .input("", Prefs.getString(prefKeyResID, LetterScheme.SPEFFZ_LETTERS),
                             (dialog, input) -> {
                                 try {

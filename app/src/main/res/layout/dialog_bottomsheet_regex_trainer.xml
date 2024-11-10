@@ -50,6 +50,13 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/regex_case_select_instructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/regex_case_select_instructions" />
+
     <View
         android:id="@+id/divider01"
         android:layout_width="match_parent"

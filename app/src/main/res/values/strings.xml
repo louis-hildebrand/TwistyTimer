@@ -438,8 +438,20 @@
 
     <string name="num_cases_selected">%1$d cases selected</string>
     <string name="corner_letter_scheme_summary">Lettering scheme used to generate cases for blindfolded training</string>
+    <string name="corner_letter_scheme_hint">
+          UBL UBR UFR UFL
+        \nLBU LFU LFD LBD
+        \nFLU FRU FRD FLD
+        \nRFU RBU RBD RFD
+        \nBRU BLU BLD BRD
+        \nDLF DRF DRB DLB
+    </string>
     <string name="corner_letter_scheme">Corner letter scheme</string>
     <string name="default_corner_letter_scheme">ABCDEFGHIJKLMNOPQRSTUVWX</string>
     <string name="invalid_letter_scheme">Invalid letter scheme</string>
+    <string name="regex_case_select_instructions">Enter a <a href="https://en.m.wikipedia.org/wiki/Regular_expression">regular expression</a> that matches the cases you want to select.
+        Cases are pairs of letters, like AB or LH.
+        For example, the regular expression "A|LH" matches all cases starting or ending with A (AB, DA, etc.) as well as LH.
+    </string>
 
 </resources>

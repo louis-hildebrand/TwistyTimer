@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,8 @@ public class BottomSheetTrainerRegexDialog extends BottomSheetDialogFragment {
 
     @BindView(R.id.title)
     TextView titleView;
+    @BindView(R.id.regex_case_select_instructions)
+    TextView instructionsView;
     @BindView(R.id.button)
     AppCompatTextView button;
     @BindView(R.id.cases_regex)
@@ -89,6 +92,8 @@ public class BottomSheetTrainerRegexDialog extends BottomSheetDialogFragment {
                 ContextCompat.getColor(getContext(), R.color.md_blue_A700)
         );
         titleView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+
+        instructionsView.setMovementMethod(LinkMovementMethod.getInstance());
 
         button.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
         button.setOnClickListener(v -> {
