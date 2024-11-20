@@ -446,9 +446,13 @@
         \nBRU BLU BLD BRD
         \nDLF DRF DRB DLB
     </string>
-    <string name="corner_letter_scheme">Corner letter scheme</string>
+    <string name="corner_letter_scheme">3BLD corner letter scheme</string>
     <string name="default_corner_letter_scheme">ABCDEFGHIJKLMNOPQRSTUVWX</string>
+    <string name="corner_buffer_summary">Buffer used to generate cases for blindfolded training</string>
+    <string name="corner_buffer_title">3BLD corner buffer</string>
+    <string name="default_corner_buffer">C</string>
     <string name="invalid_letter_scheme">Invalid letter scheme</string>
+    <string name="invalid_sticker">Invalid sticker</string>
     <string name="regex_case_select_instructions">Enter a <a href="https://en.m.wikipedia.org/wiki/Regular_expression">regular expression</a> that matches the cases you want to select.
         Cases are pairs of letters, like AB or LH.
         For example, the regular expression "A|LH" matches all cases starting or ending with A (AB, DA, etc.) as well as LH.

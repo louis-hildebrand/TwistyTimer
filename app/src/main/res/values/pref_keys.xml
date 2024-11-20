@@ -55,6 +55,7 @@ THESE KEYS MUST NOT BE LOCALIZED!
     <string translatable="false" name="pref_screen_title_timer_appearance_settings">timerAppearance</string>
     <string translatable="false" name="pref_screen_title_trainer_behavior_settings">trainerBehavior</string>
     <string translatable="false" name="pk_corner_letter_scheme">cornerLetterScheme</string>
+    <string translatable="false" name="pk_corner_buffer">cornerBuffer</string>
     <string translatable="false" name="pref_screen_other_general">prefScreenOtherGeneral</string>
     <string translatable="false" name="pref_screen_other_list">prefScreenOtherList</string>
     <string translatable="false" name="pref_screen_other_statistics">prefScreenOtherStatistics</string>

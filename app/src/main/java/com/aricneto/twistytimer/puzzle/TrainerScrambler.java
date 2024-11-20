@@ -9,6 +9,7 @@ import com.aricneto.twistytimer.utils.Prefs;
 import com.aricneto.twistytimer.utils.PuzzleUtils;
 
 import net.gnehzr.tnoodle.scrambles.InvalidScrambleException;
+import net.gnehzr.tnoodle.scrambles.Puzzle;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -113,16 +114,19 @@ public abstract class TrainerScrambler {
     /**
      * Fetches the set of selected cases for the given subset and category.
      */
-    public static Set<String> fetchSelectedCaseSet(TrainerSubset subset, String category) {
+    public static Set<String> fetchSelectedCaseSet(TrainerSubset subset, String category, Context context) {
         Set<String> caseSelection = fetchCaseSelection(subset, category);
         if (subset == TrainerSubset.THREE_STYLE_CORNERS) {
             String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
+            // TODO: What if new LetterScheme(...) of CornerSticker.parse(...) fail?
             LetterScheme letterScheme = new LetterScheme(letterSchemeStr);
+            String bufferStr = Prefs.getString(R.string.pk_corner_buffer, context.getString(R.string.default_corner_buffer));
+            CornerSticker buffer = CornerSticker.parse(bufferStr);
             Pattern p = getRegex(caseSelection);
             if (p == null) {
                 return new HashSet<>();
             }
-            return findMatchingCases(letterScheme, p);
+            return findMatchingCases(letterScheme, buffer, p);
         } else {
             return caseSelection;
         }
@@ -149,8 +153,7 @@ public abstract class TrainerScrambler {
         }
     }
 
-    private static Set<String> findMatchingCases(LetterScheme scheme, Pattern p) {
-        // TODO: Add preference for buffer position?
+    private static Set<String> findMatchingCases(LetterScheme scheme, CornerSticker buffer, Pattern p) {
         if (scheme == null) {
             throw new IllegalArgumentException("Missing letter scheme.");
         }
@@ -158,16 +161,18 @@ public abstract class TrainerScrambler {
             throw new IllegalArgumentException("Missing regex.");
         }
 
+        LetterScheme rotatedScheme = scheme.rotate(bufferToUFR(buffer));
+
         Set<Character> nonBufferStickers = scheme.getLetters();
-        nonBufferStickers.remove(scheme.fromSpeffz('C'));
-        nonBufferStickers.remove(scheme.fromSpeffz('J'));
-        nonBufferStickers.remove(scheme.fromSpeffz('M'));
+        nonBufferStickers.remove(rotatedScheme.fromSpeffz('C'));
+        nonBufferStickers.remove(rotatedScheme.fromSpeffz('J'));
+        nonBufferStickers.remove(rotatedScheme.fromSpeffz('M'));
 
         Set<String> selectedCases = new HashSet<>();
         for (char c1 : nonBufferStickers) {
             for (char c2 : nonBufferStickers) {
                 if (c1 != c2 && p.matcher("" + c1 + c2).find()) {
-                    selectedCases.add(scheme.toSpeffz("" + c1 + c2));
+                    selectedCases.add("" + c1 + c2);
                 }
             }
         }
@@ -176,33 +181,157 @@ public abstract class TrainerScrambler {
     }
 
     /**
+     * Rotate the cube so that the given sticker is now at UFR.
+     *
+     * @param buffer The buffer position, in the Speffz scheme.
+     * @return A sequence of whole-cube rotations that will move the given buffer to UFR.
+     */
+    private static String bufferToUFR(CornerSticker buffer) {
+        switch (buffer) {
+            case UBL:
+                return "y2";
+            case UBR:
+                return "y";
+            case UFR:
+                return "";
+            case UFL:
+                return "y'";
+            case FLU:
+                return "x y2";
+            case FRU:
+                return "x y";
+            case FRD:
+                return "x";
+            case FLD:
+                return "x y'";
+            case RFU:
+                return "z' y'";
+            case RBU:
+                return "z' y2";
+            case RBD:
+                return "z' y";
+            case RFD:
+                return "z'";
+            case BRU:
+                return "x'";
+            case BLU:
+                return "x' y'";
+            case BLD:
+                return "x' y2";
+            case BRD:
+                return "x' y";
+            case LBU:
+                return "z y";
+            case LFU:
+                return "z";
+            case LFD:
+                return "z y'";
+            case LBD:
+                return "z y2";
+            case DLF:
+                return "z2";
+            case DRF:
+                return "z2 y'";
+            case DRB:
+                return "z2 y2";
+            case DLB:
+                return "z2 y";
+            default:
+                throw new IllegalArgumentException(String.format("Cannot rotate %s to C because %s is not a valid letter in the Speffz scheme.", buffer.name(), buffer.name()));
+        }
+    }
+
+    /**
      * Generates a random trainer case from the selected cases
      */
     public static String generateTrainerCase(Context context, TrainerSubset subset, String category) {
-        List<String> allowedCases = new ArrayList<>(fetchSelectedCaseSet(subset, category));
-        String caseAlg = "";
-        String scramble = "";
-
-        CubePuzzle.CubeState state = null;
-
-        if (!allowedCases.isEmpty()) {
-            try {
-                // Fetch a random setup algorithm and set it as the cube state
-                caseAlg = fetchCaseAlgorithm(context, subset.name(), allowedCases.get(random.nextInt(allowedCases.size())));
-                state = (CubePuzzle.CubeState) solved.applyAlgorithm(caseAlg);
-                // Solve the state
-                scramble = ((ThreeByThreeCubePuzzle) puzzle).solveIn(state, 20, null, null);
-            } catch (InvalidScrambleException e) {
-                e.printStackTrace();
-            }
-        } else {
-            scramble = context.getString(R.string.trainer_help_message);
+        List<String> allowedCases = new ArrayList<>(fetchSelectedCaseSet(subset, category, context));
+        if (allowedCases.isEmpty()) {
+            return context.getString(R.string.trainer_help_message);
         }
+        String caseName = allowedCases.get(random.nextInt(allowedCases.size()));
 
-        if (subset == TrainerSubset.OLL || subset == TrainerSubset.PLL) {
-            return PuzzleUtils.applyRotationForAlgorithm(scramble, Y_ROTATIONS[random.nextInt(4)]);
-        } else {
-            return scramble;
+        switch (subset) {
+            case OLL:
+            case PLL:
+                return generateOLLPLLTrainerCase(context, subset, caseName);
+            case THREE_STYLE_CORNERS:
+                String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
+                // TODO: What if new LetterScheme(...) of CornerSticker.parse(...) fail?
+                LetterScheme letterScheme = new LetterScheme(letterSchemeStr);
+                String bufferStr = Prefs.getString(R.string.pk_corner_buffer, context.getString(R.string.default_corner_buffer));
+                CornerSticker buffer = CornerSticker.parse(bufferStr);
+                return generateThreeStyleTrainerCase(context, subset, caseName, letterScheme, buffer);
+            default:
+                throw new IllegalArgumentException(String.format("Unsupported trainer subset %s.", subset.name()));
+        }
+    }
+
+    private static String generateOLLPLLTrainerCase(Context context, TrainerSubset subset, String caseName) {
+        // Fetch a random setup algorithm and set it as the cube state
+        String caseAlg = fetchCaseAlgorithm(context, subset.name(), caseName);
+        CubePuzzle.CubeState state;
+        try {
+            state = (CubePuzzle.CubeState) solved.applyAlgorithm(caseAlg);
+        } catch (InvalidScrambleException e) {
+            e.printStackTrace();
+            return "";
+        }
+        // Solve the state
+        String scramble = ((ThreeByThreeCubePuzzle) puzzle).solveIn(state, 20, null, null);
+        return PuzzleUtils.applyRotationForAlgorithm(scramble, Y_ROTATIONS[random.nextInt(4)]);
+    }
+
+    // TODO: In some cases (e.g., case "LP" with Speffz scheme and buffer at FLU), the generated
+    //       scramble includes the same move twice in a row (i.e., "L L"). Why is that?
+    private static String generateThreeStyleTrainerCase(Context context, TrainerSubset subset, String caseName, LetterScheme scheme, CornerSticker buffer) {
+        String rotateBufferAlg = bufferToUFR(buffer);
+        LetterScheme rotatedScheme = scheme.rotate(rotateBufferAlg);
+
+        String speffzCase = rotatedScheme.toSpeffz(caseName);
+        String alg = fetchCaseAlgorithm(context, subset.name(), speffzCase);
+
+        return PuzzleUtils.applyRotationsForAlgorithm(alg, invertRotations(rotateBufferAlg));
+    }
+
+    // TODO: Generalize this and move it to `PuzzleUtils`?
+    private static String invertRotations(String rotations) {
+        if ((rotations == null ? "" : rotations).trim().isEmpty()) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+        String[] moves = rotations.split("\\s+");
+        for (int i = moves.length - 1; i >= 0; i--) {
+            builder.append(invertRotation(moves[i]));
+            if (i > 0) {
+                builder.append(" ");
+            }
+        }
+        return builder.toString();
+    }
+
+    private static String invertRotation(String rot) {
+        switch (rot) {
+            case "x":
+                return "x'";
+            case "x'":
+                return "x";
+            case "x2":
+                return "x2";
+            case "y":
+                return "y'";
+            case "y'":
+                return "y";
+            case "y2":
+                return "y2";
+            case "z":
+                return "z'";
+            case "z'":
+                return "z";
+            case "z2":
+                return "z2";
+            default:
+                throw new IllegalArgumentException(String.format("'%s' is not a valid rotation.", rot));
         }
     }
 
@@ -210,7 +339,6 @@ public abstract class TrainerScrambler {
         Resources resources = context.getResources();
 
         // Finds an algorithm resource with a matching name on the file trainer_scrambles.xml
-
         try {
             // Find the resource
             int resId = resources.getIdentifier(
@@ -219,7 +347,7 @@ public abstract class TrainerScrambler {
                     context.getPackageName()
             );
 
-            // Split the resouce entries
+            // Split the resource entries
             String[] res = resources.getStringArray(resId);
 
             // Return one of the entries

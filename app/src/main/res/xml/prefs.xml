@@ -176,6 +176,12 @@
                 android:summary="@string/corner_letter_scheme_summary"
                 android:title="@string/corner_letter_scheme" />
 
+            <Preference
+                android:defaultValue="@string/default_corner_buffer"
+                android:key="@string/pk_corner_buffer"
+                android:summary="@string/corner_buffer_summary"
+                android:title="@string/corner_buffer_title" />
+
         </PreferenceScreen>
 
         <PreferenceScreen
