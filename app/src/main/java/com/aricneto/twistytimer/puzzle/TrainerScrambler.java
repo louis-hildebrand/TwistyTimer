@@ -18,6 +18,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
@@ -36,6 +37,7 @@ public abstract class TrainerScrambler {
 
     private static CubePuzzle puzzle = new ThreeByThreeCubePuzzle();
     private static CubePuzzle.CubeState solved = puzzle.getSolvedState();
+    private static final Logger logger = Logger.getLogger(TrainerScrambler.class.getName());
 
     private TrainerScrambler() {}
 
@@ -118,7 +120,7 @@ public abstract class TrainerScrambler {
         Set<String> caseSelection = fetchCaseSelection(subset, category);
         if (subset == TrainerSubset.THREE_STYLE_CORNERS) {
             String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
-            // TODO: What if new LetterScheme(...) of CornerSticker.parse(...) fail?
+            // TODO: What if new LetterScheme(...) or CornerSticker.parse(...) fail?
             LetterScheme letterScheme = new LetterScheme(letterSchemeStr);
             String bufferStr = Prefs.getString(R.string.pk_corner_buffer, context.getString(R.string.default_corner_buffer));
             CornerSticker buffer = CornerSticker.parse(bufferStr);
@@ -257,7 +259,7 @@ public abstract class TrainerScrambler {
                 return generateOLLPLLTrainerCase(context, subset, caseName);
             case THREE_STYLE_CORNERS:
                 String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
-                // TODO: What if new LetterScheme(...) of CornerSticker.parse(...) fail?
+                // TODO: What if new LetterScheme(...) or CornerSticker.parse(...) fail?
                 LetterScheme letterScheme = new LetterScheme(letterSchemeStr);
                 String bufferStr = Prefs.getString(R.string.pk_corner_buffer, context.getString(R.string.default_corner_buffer));
                 CornerSticker buffer = CornerSticker.parse(bufferStr);
@@ -288,6 +290,7 @@ public abstract class TrainerScrambler {
 
         String speffzCase = rotatedScheme.toSpeffz(caseName);
         String alg = fetchCaseAlgorithm(context, subset.name(), speffzCase);
+        String[] algMoves = alg.split("\\s+");
 
         CubePuzzle.CubeState state;
         try {
@@ -296,9 +299,29 @@ public abstract class TrainerScrambler {
             e.printStackTrace();
             return "";
         }
-        String scramble = ((ThreeByThreeCubePuzzle) puzzle).solveIn(state, 20, null, null);
+        // Use firstAxisRestriction and lastAxisRestriction to ensure the scramble doesn't closely
+        // resemble the solution
+        String firstMoveFace = algMoves[0].substring(0, 1);
+        if (!isValidAxis(firstMoveFace)) {
+            firstMoveFace = null;
+        }
+        String lastMoveFace = algMoves[algMoves.length - 1].substring(0, 1);
+        if (!isValidAxis(lastMoveFace)) {
+            lastMoveFace = null;
+        }
+        logger.info(String.format("Searching for scramble for case \"%s\" with firstAxisRestriction=\"%s\" and lastAxisRestriction=\"%s\".", caseName, lastMoveFace, firstMoveFace));
+        String scramble = ((ThreeByThreeCubePuzzle) puzzle).solveIn(state, 20, lastMoveFace, firstMoveFace);
 
         return PuzzleUtils.applyRotationsForAlgorithm(scramble, invertRotations(rotateBufferAlg));
+    }
+
+    private static boolean isValidAxis(String axis) {
+        return "U".equals(axis)
+                || "F".equals(axis)
+                || "R".equals(axis)
+                || "B".equals(axis)
+                || "L".equals(axis)
+                || "D".equals(axis);
     }
 
     // TODO: Generalize this and move it to `PuzzleUtils`?
