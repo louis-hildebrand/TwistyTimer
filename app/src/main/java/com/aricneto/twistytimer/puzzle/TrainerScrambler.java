@@ -268,8 +268,8 @@ public abstract class TrainerScrambler {
     }
 
     private static String generateOLLPLLTrainerCase(Context context, TrainerSubset subset, String caseName) {
-        // Fetch a random setup algorithm and set it as the cube state
         String caseAlg = fetchCaseAlgorithm(context, subset.name(), caseName);
+
         CubePuzzle.CubeState state;
         try {
             state = (CubePuzzle.CubeState) solved.applyAlgorithm(caseAlg);
@@ -277,13 +277,11 @@ public abstract class TrainerScrambler {
             e.printStackTrace();
             return "";
         }
-        // Solve the state
         String scramble = ((ThreeByThreeCubePuzzle) puzzle).solveIn(state, 20, null, null);
+
         return PuzzleUtils.applyRotationForAlgorithm(scramble, Y_ROTATIONS[random.nextInt(4)]);
     }
 
-    // TODO: In some cases (e.g., case "LP" with Speffz scheme and buffer at FLU), the generated
-    //       scramble includes the same move twice in a row (i.e., "L L"). Why is that?
     private static String generateThreeStyleTrainerCase(Context context, TrainerSubset subset, String caseName, LetterScheme scheme, CornerSticker buffer) {
         String rotateBufferAlg = bufferToUFR(buffer);
         LetterScheme rotatedScheme = scheme.rotate(rotateBufferAlg);
@@ -291,7 +289,16 @@ public abstract class TrainerScrambler {
         String speffzCase = rotatedScheme.toSpeffz(caseName);
         String alg = fetchCaseAlgorithm(context, subset.name(), speffzCase);
 
-        return PuzzleUtils.applyRotationsForAlgorithm(alg, invertRotations(rotateBufferAlg));
+        CubePuzzle.CubeState state;
+        try {
+            state = (CubePuzzle.CubeState) solved.applyAlgorithm(alg);
+        } catch (InvalidScrambleException e) {
+            e.printStackTrace();
+            return "";
+        }
+        String scramble = ((ThreeByThreeCubePuzzle) puzzle).solveIn(state, 20, null, null);
+
+        return PuzzleUtils.applyRotationsForAlgorithm(scramble, invertRotations(rotateBufferAlg));
     }
 
     // TODO: Generalize this and move it to `PuzzleUtils`?
@@ -335,6 +342,9 @@ public abstract class TrainerScrambler {
         }
     }
 
+    /**
+     * Find an algorithm which solves the given case.
+     */
     private static String fetchCaseAlgorithm(Context context, String subset, String name) {
         Resources resources = context.getResources();
 

@@ -450,7 +450,7 @@
     <string name="default_corner_letter_scheme">ABCDEFGHIJKLMNOPQRSTUVWX</string>
     <string name="corner_buffer_summary">Buffer used to generate cases for blindfolded training</string>
     <string name="corner_buffer_title">3BLD corner buffer</string>
-    <string name="default_corner_buffer">C</string>
+    <string name="default_corner_buffer">UFR</string>
     <string name="invalid_letter_scheme">Invalid letter scheme</string>
     <string name="invalid_sticker">Invalid sticker</string>
     <string name="regex_case_select_instructions">Enter a <a href="https://en.m.wikipedia.org/wiki/Regular_expression">regular expression</a> that matches the cases you want to select.
