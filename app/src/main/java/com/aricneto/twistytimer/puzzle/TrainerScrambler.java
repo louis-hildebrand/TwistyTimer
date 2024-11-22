@@ -290,7 +290,20 @@ public abstract class TrainerScrambler {
 
         String speffzCase = rotatedScheme.toSpeffz(caseName);
         String alg = fetchCaseAlgorithm(context, subset.name(), speffzCase);
-        String[] algMoves = alg.split("\\s+");
+        // Add a random prefix and suffix so that the scramble isn't the same each time.
+        // Let A be the solution for this case, P be the random prefix, and S be the random suffix.
+        // We want to find A', the inverse of A.
+        // A' = S S' A' P' P
+        //    = S (S' A' P') P'
+        //    = S (P A S)' P
+        // So we can just add the prefix and suffix to A, call the solver, and then add the suffix
+        // and prefix onto the resulting scramble to find an algorithm that's equal to A' but
+        // starts with the suffix and ends with the prefix.
+        String[] faces = {"U", "F", "R", "B", "L", "D"};
+        String[] turns = {"", "'", "2"};
+        String prefix = faces[random.nextInt(faces.length)] + turns[random.nextInt(turns.length)];
+        String suffix = faces[random.nextInt(faces.length)] + turns[random.nextInt(turns.length)];
+        alg = String.format("%s %s %s", prefix, alg, suffix);
 
         CubePuzzle.CubeState state;
         try {
@@ -299,8 +312,10 @@ public abstract class TrainerScrambler {
             e.printStackTrace();
             return "";
         }
-        // Use firstAxisRestriction and lastAxisRestriction to ensure the scramble doesn't closely
-        // resemble the solution
+
+        // Use firstAxisRestriction and lastAxisRestriction in the puzzle.solveIn() method to
+        // ensure the solver doesn't just undo the prefix and suffix.
+        String[] algMoves = alg.split("\\s+");
         String firstMoveFace = algMoves[0].substring(0, 1);
         if (!isValidAxis(firstMoveFace)) {
             firstMoveFace = null;
@@ -311,6 +326,8 @@ public abstract class TrainerScrambler {
         }
         logger.info(String.format("Searching for scramble for case \"%s\" with firstAxisRestriction=\"%s\" and lastAxisRestriction=\"%s\".", caseName, lastMoveFace, firstMoveFace));
         String scramble = ((ThreeByThreeCubePuzzle) puzzle).solveIn(state, 20, lastMoveFace, firstMoveFace);
+
+        scramble = String.format("%s %s %s", suffix, scramble, prefix);
 
         return PuzzleUtils.applyRotationsForAlgorithm(scramble, invertRotations(rotateBufferAlg));
     }
