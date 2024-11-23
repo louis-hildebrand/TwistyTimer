@@ -118,19 +118,29 @@ public abstract class TrainerScrambler {
      */
     public static Set<String> fetchSelectedCaseSet(TrainerSubset subset, String category, Context context) {
         Set<String> caseSelection = fetchCaseSelection(subset, category);
-        if (subset == TrainerSubset.THREE_STYLE_CORNERS) {
-            String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
-            // TODO: What if new LetterScheme(...) or CornerSticker.parse(...) fail?
-            LetterScheme letterScheme = new LetterScheme(letterSchemeStr);
-            String bufferStr = Prefs.getString(R.string.pk_corner_buffer, context.getString(R.string.default_corner_buffer));
-            CornerSticker buffer = CornerSticker.parse(bufferStr);
-            Pattern p = getRegex(caseSelection);
-            if (p == null) {
-                return new HashSet<>();
-            }
-            return findMatchingCases(letterScheme, buffer, p);
-        } else {
-            return caseSelection;
+        switch (subset) {
+            case OLL:
+            case PLL:
+                return caseSelection;
+            case THREE_STYLE_CORNERS:
+                String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
+                String bufferStr = Prefs.getString(R.string.pk_corner_buffer, context.getString(R.string.default_corner_buffer));
+                LetterScheme letterScheme;
+                CornerSticker buffer;
+                try {
+                    letterScheme = new LetterScheme(letterSchemeStr);
+                    buffer = CornerSticker.parse(bufferStr);
+                }
+                catch (IllegalArgumentException e) {
+                    return new HashSet<>();
+                }
+                Pattern p = getRegex(caseSelection);
+                if (p == null) {
+                    return new HashSet<>();
+                }
+                return findMatchingCases(letterScheme, buffer, p);
+            default:
+                throw new IllegalArgumentException(String.format("Unsupported trainer subset %s.", subset.name()));
         }
     }
 
@@ -259,10 +269,23 @@ public abstract class TrainerScrambler {
                 return generateOLLPLLTrainerCase(context, subset, caseName);
             case THREE_STYLE_CORNERS:
                 String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
-                // TODO: What if new LetterScheme(...) or CornerSticker.parse(...) fail?
-                LetterScheme letterScheme = new LetterScheme(letterSchemeStr);
+                LetterScheme letterScheme;
+                try {
+                    letterScheme = new LetterScheme(letterSchemeStr);
+                }
+                catch (IllegalArgumentException e) {
+                    return context.getString(R.string.trainer_help_invalid_letter_scheme);
+                }
+
                 String bufferStr = Prefs.getString(R.string.pk_corner_buffer, context.getString(R.string.default_corner_buffer));
-                CornerSticker buffer = CornerSticker.parse(bufferStr);
+                CornerSticker buffer;
+                try {
+                    buffer = CornerSticker.parse(bufferStr);
+                }
+                catch (IllegalArgumentException e) {
+                    return context.getString(R.string.trainer_help_invalid_corner_buffer);
+                }
+
                 return generateThreeStyleTrainerCase(context, subset, caseName, letterScheme, buffer);
             default:
                 throw new IllegalArgumentException(String.format("Unsupported trainer subset %s.", subset.name()));
@@ -329,7 +352,7 @@ public abstract class TrainerScrambler {
 
         scramble = String.format("%s %s %s", suffix, scramble, prefix);
 
-        return PuzzleUtils.applyRotationsForAlgorithm(scramble, invertRotations(rotateBufferAlg));
+        return PuzzleUtils.applyRotationsForAlgorithm(scramble, PuzzleUtils.invertRotations(rotateBufferAlg));
     }
 
     private static boolean isValidAxis(String axis) {
@@ -339,47 +362,6 @@ public abstract class TrainerScrambler {
                 || "B".equals(axis)
                 || "L".equals(axis)
                 || "D".equals(axis);
-    }
-
-    // TODO: Generalize this and move it to `PuzzleUtils`?
-    private static String invertRotations(String rotations) {
-        if ((rotations == null ? "" : rotations).trim().isEmpty()) {
-            return "";
-        }
-        StringBuilder builder = new StringBuilder();
-        String[] moves = rotations.split("\\s+");
-        for (int i = moves.length - 1; i >= 0; i--) {
-            builder.append(invertRotation(moves[i]));
-            if (i > 0) {
-                builder.append(" ");
-            }
-        }
-        return builder.toString();
-    }
-
-    private static String invertRotation(String rot) {
-        switch (rot) {
-            case "x":
-                return "x'";
-            case "x'":
-                return "x";
-            case "x2":
-                return "x2";
-            case "y":
-                return "y'";
-            case "y'":
-                return "y";
-            case "y2":
-                return "y2";
-            case "z":
-                return "z'";
-            case "z'":
-                return "z";
-            case "z2":
-                return "z2";
-            default:
-                throw new IllegalArgumentException(String.format("'%s' is not a valid rotation.", rot));
-        }
     }
 
     /**

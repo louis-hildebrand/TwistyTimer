@@ -100,15 +100,14 @@ public class BottomSheetTrainerRegexDialog extends BottomSheetDialogFragment {
             casesRegex.setText(".*");
         });
 
-        // TODO: initialize casesRegex with the saved regex, or empty if there is none
+        int initialNumCases = TrainerScrambler.fetchSelectedCaseSet(currentSubset, currentCategory, getContext()).size();
+        numCasesSelected.setText(getString(R.string.num_cases_selected, initialNumCases));
         Set<String> previouslySelectedItems = TrainerScrambler.fetchCaseSelection(currentSubset, currentCategory);
         String initialRegex = "";
         for (String s : previouslySelectedItems) {
             initialRegex = s;
             break;
         }
-        int initialNumCases = TrainerScrambler.fetchSelectedCaseSet(currentSubset, currentCategory, getContext()).size();
-        numCasesSelected.setText(getString(R.string.num_cases_selected, initialNumCases));
         casesRegex.setText(initialRegex);
         casesRegex.addTextChangedListener(new TextWatcher() {
             @Override

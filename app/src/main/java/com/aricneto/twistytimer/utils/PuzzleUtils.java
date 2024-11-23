@@ -471,7 +471,47 @@ public class PuzzleUtils {
         return alg;
     }
 
-        /**
+    public static String invertRotations(String rotations) {
+        if ((rotations == null ? "" : rotations).trim().isEmpty()) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+        String[] moves = rotations.split("\\s+");
+        for (int i = moves.length - 1; i >= 0; i--) {
+            builder.append(invertRotation(moves[i]));
+            if (i > 0) {
+                builder.append(" ");
+            }
+        }
+        return builder.toString();
+    }
+
+    private static String invertRotation(String rot) {
+        switch (rot) {
+            case "x":
+                return "x'";
+            case "x'":
+                return "x";
+            case "x2":
+                return "x2";
+            case "y":
+                return "y'";
+            case "y'":
+                return "y";
+            case "y2":
+                return "y2";
+            case "z":
+                return "z'";
+            case "z'":
+                return "z";
+            case "z2":
+                return "z2";
+            default:
+                throw new IllegalArgumentException(String.format("'%s' is not a valid rotation.", rot));
+        }
+    }
+
+    /**
          * Shares an average-of-N, formatted to a simple string.
          *
          * @param n

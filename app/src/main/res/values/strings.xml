@@ -453,6 +453,8 @@
     <string name="default_corner_buffer">UFR</string>
     <string name="invalid_letter_scheme">Invalid letter scheme</string>
     <string name="invalid_sticker">Invalid sticker</string>
+    <string name="trainer_help_invalid_letter_scheme">The selected letter scheme is invalid. Please select a valid one in the trainer settings.</string>
+    <string name="trainer_help_invalid_corner_buffer">The selected corner buffer is invalid. Please select a valid one in the trainer settings.</string>
     <string name="regex_case_select_instructions">Enter a <a href="https://en.m.wikipedia.org/wiki/Regular_expression">regular expression</a> that matches the cases you want to select.
         Cases are pairs of letters, like AB or LH.
         For example, the regular expression "A|LH" matches all cases starting or ending with A (AB, DA, etc.) as well as LH.
