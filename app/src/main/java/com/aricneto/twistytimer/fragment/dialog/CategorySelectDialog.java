@@ -87,16 +87,16 @@ public class CategorySelectDialog extends DialogFragment {
         mUnbinder = ButterKnife.bind(this, view);
         mContext = getContext();
 
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
         return view;
     }
 
     @SuppressWarnings("RestrictedApi")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        // TODO: this keeps crashing! What was it even doing?
-        // getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         super.onViewCreated(view, savedInstanceState);
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         // retrieve arguments
         currentPuzzle = getArguments().getString("puzzle");

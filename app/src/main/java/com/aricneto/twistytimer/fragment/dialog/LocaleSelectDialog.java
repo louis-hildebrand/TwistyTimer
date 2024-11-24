@@ -51,18 +51,13 @@ public class LocaleSelectDialog extends DialogFragment implements DialogListener
         View dialogView = inflater.inflate(R.layout.dialog_settings_change_locale, container);
         mUnbinder = ButterKnife.bind(this, dialogView);
 
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(new LocaleSelectAdapter(getActivity(), this));
 
         return dialogView;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
     }
 
     @Override
