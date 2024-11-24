@@ -166,6 +166,25 @@
         </PreferenceScreen>
 
         <PreferenceScreen
+            android:icon="@drawable/ic_outline_control_camera_teal_24px"
+            android:key="@string/pref_screen_title_trainer_behavior_settings"
+            android:title="@string/pref_screen_title_trainer_behavior">
+
+            <Preference
+                android:defaultValue="@string/default_corner_letter_scheme"
+                android:key="@string/pk_corner_letter_scheme"
+                android:summary="@string/corner_letter_scheme_summary"
+                android:title="@string/corner_letter_scheme" />
+
+            <Preference
+                android:defaultValue="@string/default_corner_buffer"
+                android:key="@string/pk_corner_buffer"
+                android:summary="@string/corner_buffer_summary"
+                android:title="@string/corner_buffer_title" />
+
+        </PreferenceScreen>
+
+        <PreferenceScreen
             android:icon="@drawable/ic_format_shapes_black_24dp"
             android:key="@string/pref_screen_title_timer_appearance_settings"
             android:title="@string/pref_screen_title_timer_appearance">

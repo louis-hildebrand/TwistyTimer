@@ -103,6 +103,7 @@
     <string name="drawer_title_oll" translatable="false">OLL</string>
     <string name="drawer_title_other">Other</string>
     <string name="drawer_title_pll" translatable="false">PLL</string>
+    <string name="drawer_title_3style_corners" translatable="false">3-style corners</string>
     <string name="drawer_title_reference">Reference</string>
     <string name="drawer_title_timer">Timer</string>
 
@@ -222,6 +223,7 @@
     <string name="pref_category_title_timer">Timer</string>
     <string name="pref_screen_title_inspection_behavior">Inspection behavior</string>
     <string name="pref_screen_title_timer_behavior">Timer behavior</string>
+    <string name="pref_screen_title_trainer_behavior">Trainer behavior</string>
     <string name="pref_screen_title_timer_appearance">Timer appearance</string>
 
     <string name="pref_scramble_box_title">Scramble background</string>
@@ -433,5 +435,29 @@
     <string name="list_sort_date">Date</string>
     <string name="list_sort_ascending">Ascending</string>
     <string name="list_sort_descending">Descending</string>
+
+    <string name="num_cases_selected">%1$d cases selected</string>
+    <string name="corner_letter_scheme_summary">Lettering scheme used to generate cases for blindfolded training</string>
+    <string name="corner_letter_scheme_hint">
+          UBL UBR UFR UFL
+        \nLBU LFU LFD LBD
+        \nFLU FRU FRD FLD
+        \nRFU RBU RBD RFD
+        \nBRU BLU BLD BRD
+        \nDLF DRF DRB DLB
+    </string>
+    <string name="corner_letter_scheme">3BLD corner letter scheme</string>
+    <string name="default_corner_letter_scheme">ABCDEFGHIJKLMNOPQRSTUVWX</string>
+    <string name="corner_buffer_summary">Buffer used to generate cases for blindfolded training</string>
+    <string name="corner_buffer_title">3BLD corner buffer</string>
+    <string name="default_corner_buffer">UFR</string>
+    <string name="invalid_letter_scheme">Invalid letter scheme</string>
+    <string name="invalid_sticker">Invalid sticker</string>
+    <string name="trainer_help_invalid_letter_scheme">The selected letter scheme is invalid. Please select a valid one in the trainer settings.</string>
+    <string name="trainer_help_invalid_corner_buffer">The selected corner buffer is invalid. Please select a valid one in the trainer settings.</string>
+    <string name="regex_case_select_instructions">Enter a <a href="https://en.m.wikipedia.org/wiki/Regular_expression">regular expression</a> that matches the cases you want to select.
+        Cases are pairs of letters, like AB or LH.
+        For example, the regular expression "A|LH" matches all cases starting or ending with A (AB, DA, etc.) as well as LH.
+    </string>
 
 </resources>

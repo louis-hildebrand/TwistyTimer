@@ -387,44 +387,131 @@ public class PuzzleUtils {
         return rotated.toString();
     }
 
-    // returns new string with transformed algorithm.
-    // Returnes sequence of moves that get the cube to the same position as (alg + rot) does, but without cube rotations.
-    // Example: applyRotationForAlgorithm("R U R'", "y") = "F U F'"
+    /**
+     * Returns the sequence of moves that get the cube to the same position as (alg + rot) does, but without cube rotations.
+     * Example: applyRotationForAlgorithm("R U R'", "y") = "F U F'".
+     */
     public static String applyRotationForAlgorithm(String alg, String rot) {
-        HashMap<String, String> map;
+        HashMap<String, String> map = new HashMap<>();
         switch (rot) {
+            case "x":
+                map.put("U", "B");
+                map.put("F", "U");
+                map.put("B", "D");
+                map.put("D", "F");
+                break;
+            case "x'":
+                map.put("U", "F");
+                map.put("F", "D");
+                map.put("B", "U");
+                map.put("D", "B");
+                break;
+            case "x2":
+                map.put("U", "D");
+                map.put("F", "B");
+                map.put("D", "U");
+                map.put("B", "F");
+                break;
             case "y":
-                map = new HashMap<String, String>() {{
-                   put("R", "F");
-                   put("F", "L");
-                   put("L", "B");
-                   put("B", "R");
-                }};
+                map.put("R", "F");
+                map.put("F", "L");
+                map.put("L", "B");
+                map.put("B", "R");
                 break;
             case "y'":
-                map = new HashMap<String, String>() {{
-                    put("R", "B");
-                    put("B", "L");
-                    put("L", "F");
-                    put("F", "R");
-                }};
+                map.put("R", "B");
+                map.put("B", "L");
+                map.put("L", "F");
+                map.put("F", "R");
                 break;
             case "y2":
-                map = new HashMap<String, String>() {{
-                    put("R", "L");
-                    put("L", "R");
-                    put("B", "F");
-                    put("F", "B");
-                }};
+                map.put("R", "L");
+                map.put("L", "R");
+                map.put("B", "F");
+                map.put("F", "B");
+                break;
+            case "z":
+                map.put("U", "R");
+                map.put("R", "D");
+                map.put("D", "L");
+                map.put("L", "U");
+                break;
+            case "z'":
+                map.put("U", "L");
+                map.put("R", "U");
+                map.put("D", "R");
+                map.put("L", "D");
+                break;
+            case "z2":
+                map.put("U", "D");
+                map.put("R", "L");
+                map.put("D", "U");
+                map.put("L", "R");
                 break;
             default:
-                return alg;
+                throw new IllegalArgumentException(String.format("Invalid rotation: '%s'", rot));
         }
-
         return replaceAll(alg, map);
     }
 
-        /**
+    /**
+     * Returns the sequence of moves that get the cube to the same position as (alg + rot) does, but without cube rotations.
+     * Example: applyRotationForAlgorithm("R U R'", "y z'") = "F L F'".
+     *
+     * @param alg Any algorithm.
+     * @param rotations A whitespace-separated sequence of only whole-cube rotations (x, y', z2, etc.).
+     */
+    public static String applyRotationsForAlgorithm(String alg, String rotations) {
+        if ((rotations == null ? "" : rotations).trim().isEmpty()) {
+            return alg;
+        }
+        for (String r : rotations.split("\\s+")) {
+            alg = applyRotationForAlgorithm(alg, r);
+        }
+        return alg;
+    }
+
+    public static String invertRotations(String rotations) {
+        if ((rotations == null ? "" : rotations).trim().isEmpty()) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+        String[] moves = rotations.split("\\s+");
+        for (int i = moves.length - 1; i >= 0; i--) {
+            builder.append(invertRotation(moves[i]));
+            if (i > 0) {
+                builder.append(" ");
+            }
+        }
+        return builder.toString();
+    }
+
+    private static String invertRotation(String rot) {
+        switch (rot) {
+            case "x":
+                return "x'";
+            case "x'":
+                return "x";
+            case "x2":
+                return "x2";
+            case "y":
+                return "y'";
+            case "y'":
+                return "y";
+            case "y2":
+                return "y2";
+            case "z":
+                return "z'";
+            case "z'":
+                return "z";
+            case "z2":
+                return "z2";
+            default:
+                throw new IllegalArgumentException(String.format("'%s' is not a valid rotation.", rot));
+        }
+    }
+
+    /**
          * Shares an average-of-N, formatted to a simple string.
          *
          * @param n

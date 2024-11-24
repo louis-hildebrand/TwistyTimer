@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -51,7 +50,7 @@ public class TrainerCursorAdapter extends AlgCursorAdapter {
                 Color.BLACK, 14, 2);
 
         selectedItems = new ArrayList<>();
-        selectedItems.addAll(TrainerScrambler.fetchSelectedItems(subset, category));
+        selectedItems.addAll(TrainerScrambler.fetchCaseSelection(subset, category));
 
         this.currentSubset = subset;
         this.currentPuzzleCategory = category;
@@ -60,11 +59,6 @@ public class TrainerCursorAdapter extends AlgCursorAdapter {
 
     private boolean isSelected(String name) {
         return selectedItems.contains(name);
-    }
-
-    public void unselectAll() {
-        selectedItems.clear();
-        TrainerScrambler.saveSelectedItems(currentSubset, currentPuzzleCategory, selectedItems);
     }
 
     public void selectAll() {
@@ -84,8 +78,10 @@ public class TrainerCursorAdapter extends AlgCursorAdapter {
                     selectedItems.addAll(Arrays.asList(pll_cases));
                 }
                 break;
+            case THREE_STYLE_CORNERS:
+                throw new IllegalArgumentException("TrainerCursorAdapter should not be used for 3-style corners.");
         }
-        TrainerScrambler.saveSelectedItems(currentSubset, currentPuzzleCategory, selectedItems);
+        TrainerScrambler.saveCaseSelection(currentSubset, currentPuzzleCategory, selectedItems);
     }
 
     private void toggleSelection(String name, CardView card) {
@@ -96,7 +92,7 @@ public class TrainerCursorAdapter extends AlgCursorAdapter {
             selectedItems.remove(name);
             card.setBackground(cardBackground);
         }
-        TrainerScrambler.saveSelectedItems(currentSubset, currentPuzzleCategory, selectedItems);
+        TrainerScrambler.saveCaseSelection(currentSubset, currentPuzzleCategory, selectedItems);
     }
 
     @Override

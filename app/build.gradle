@@ -60,6 +60,7 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     // Butterknife ("apt" dependency is defined in root "build.gradle" script).
     implementation 'com.jakewharton:butterknife:10.0.0'
+    testImplementation project(':app')
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     // Observable scrollview
     implementation 'com.github.ksoichiro:android-observablescrollview:1.5.2'
@@ -89,11 +90,16 @@ dependencies {
     // Material color picker
     implementation project(':lib:vintage-chroma:library')
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
 }
 
 repositories {
-    jcenter()
     maven { url 'http://maven.google.com' }
     maven { url 'https://jitpack.io' }
+}
+
+tasks.withType(Test) {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
