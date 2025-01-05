@@ -60,6 +60,7 @@ import com.aricneto.twistytimer.fragment.dialog.BottomSheetDetailDialog;
 import com.aricneto.twistytimer.items.Solve;
 import com.aricneto.twistytimer.layout.ChronometerMilli;
 import com.aricneto.twistytimer.listener.OnBackPressedInFragmentListener;
+import com.aricneto.twistytimer.puzzle.TrainerCase;
 import com.aricneto.twistytimer.puzzle.TrainerScrambler;
 import com.aricneto.twistytimer.solver.RubiksCubeOptimalCross;
 import com.aricneto.twistytimer.solver.RubiksCubeOptimalXCross;
@@ -133,6 +134,8 @@ public class                                                                    
     private static final String TRAINER_SUBSET = "trainer_subset";
     private static final String TIMER_MODE = "timer_mode";
     private static final String SCRAMBLE = "scramble";
+    private static final String IS_SCRAMBLE_VALID = "is_scramble_valid";
+    private static final String TRAINER_CASE_NAME = "trainer_case_name";
     private static final String HAS_STOPPED_TIMER_ONCE = "has_stopped_timer_once";
 
 
@@ -150,12 +153,12 @@ public class                                                                    
      * The last generated scramble, related to the current solve. When the timer is started,
      * the timer will generate a new scramble, but it will be saved in realScramble.
      */
-    private String currentScramble = "";
+    private TrainerCase currentScramble = null;
 
     /**
      * The scramble that is currently being shown to the user. MAY NOT BE currentScramble!
      */
-    private String realScramble = null;
+    private TrainerCase realScramble = null;
 
     private Solve  currentSolve    = null;
 
@@ -217,6 +220,7 @@ public class                                                                    
 
     @BindView(R.id.detail_average_record_message) View detailAverageRecordMesssage;
 
+    @BindView(R.id.timerTrainerCase) TextView trainerCaseText;
     @BindView(R.id.chronometer)      ChronometerMilli    chronometer;
     @BindView(R.id.scramble_box)     CardView                scrambleBox;
     @BindView(R.id.scramble_text)
@@ -432,7 +436,7 @@ public class                                                                    
                             .title(R.string.edit_scramble)
                             .input("", "", (dialog1, input) -> {
 
-                                setScramble(input.toString());
+                                setScramble(TrainerCase.makeValid("", input.toString()));
 
                                 // The hint solver will crash if you give it invalid scrambles,
                                 // so we shouldn't calculate hints for custom scrambles.
@@ -454,7 +458,8 @@ public class                                                                    
                     editScrambleDialog.show();
                     break;
                 case R.id.scramble_button_manual_entry:
-                    AddTimeDialog addTimeDialog = AddTimeDialog.newInstance(currentPuzzle, currentPuzzleCategory, realScramble);
+                    String scramble = realScramble == null ? null : realScramble.getScramble();
+                    AddTimeDialog addTimeDialog = AddTimeDialog.newInstance(currentPuzzle, currentPuzzleCategory, scramble);
                     FragmentManager manager = getFragmentManager();
                     if (manager != null)
                         addTimeDialog.show(manager, "dialog_add_time");
@@ -497,9 +502,17 @@ public class                                                                    
 
         if (savedInstanceState != null) {
             if (savedInstanceState.getString(PUZZLE) == getArguments().get(PUZZLE)) {
-                realScramble = savedInstanceState.getString(SCRAMBLE);
+                // TODO: What is going on here? Maybe test what happens if I go home and then
+                //       re-open the app.
+                boolean valid = savedInstanceState.getBoolean(IS_SCRAMBLE_VALID);
+                String scramble = savedInstanceState.getString(SCRAMBLE);
+                if (valid) {
+                    String name = savedInstanceState.getString(TRAINER_CASE_NAME);
+                    realScramble = TrainerCase.makeValid(name, scramble);
+                } else {
+                    realScramble = TrainerCase.makeInvalid(scramble);
+                }
             }
-            //hasStoppedTimerOnce = savedInstanceState.getBoolean(HAS_STOPPED_TIMER_ONCE, false);
         }
 
         detailTextNamesArray = getResources().getStringArray(R.array.timer_detail_stats);
@@ -996,10 +1009,11 @@ public class                                                                    
     }
 
     private void addNewSolve() {
+        String scramble = currentScramble == null ? "" : currentScramble.getScramble();
         currentSolve = new Solve(
                 (int) chronometer.getElapsedTime(), // Includes any "+2" penalty. Is zero for "DNF".
                 currentPuzzle, currentPuzzleCategory,
-                System.currentTimeMillis(), currentScramble, currentPenalty, "", false);
+                System.currentTimeMillis(), scramble, currentPenalty, "", false);
 
         if (currentPenalty != PENALTY_DNF) {
             declareRecordTimes(currentSolve);
@@ -1337,6 +1351,15 @@ public class                                                                    
         chronometer.start();
         chronometer.setHighlighted(false); // Clear any start cue or hold-for-start highlight.
 
+        boolean shouldShowName = TIMER_MODE_TRAINER.equals(currentTimerMode);
+        if (shouldShowName) {
+            trainerCaseText.setText(realScramble == null ? "" : realScramble.getName());
+            trainerCaseText.setVisibility(View.VISIBLE);
+        } else {
+            trainerCaseText.setVisibility(View.GONE);
+            trainerCaseText.setText("");
+        }
+
         // isRunning should be set before generateNewScramble so the loading spinner doesn't appear
         // during a solve, since generateNewScramble checks if isRunning is false before setting
         // the spinner to visible.
@@ -1354,6 +1377,7 @@ public class                                                                    
     private void stopChronometer() {
         chronometer.stop();
         chronometer.setHighlighted(false);
+        trainerCaseText.setVisibility(View.GONE);
         isRunning = false;
         hasStoppedTimerOnce = true;
         showToolbar();
@@ -1376,8 +1400,11 @@ public class                                                                    
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        // TODO: Also save whether or not we're in trainer mode?
         super.onSaveInstanceState(outState);
-        outState.putString(SCRAMBLE, realScramble);
+        outState.putString(SCRAMBLE, realScramble == null ? "" : realScramble.getName());
+        outState.putString(TRAINER_CASE_NAME, realScramble == null ? null : realScramble.getScramble());
+        outState.putBoolean(IS_SCRAMBLE_VALID, realScramble == null || realScramble.isValid());
         outState.putString(PUZZLE, currentPuzzle);
         outState.putBoolean(HAS_STOPPED_TIMER_ONCE, hasStoppedTimerOnce);
     }
@@ -1440,7 +1467,7 @@ public class                                                                    
         if (showHintsEnabled) {
             if (optimalCrossAsync != null)
                 optimalCrossAsync.cancel(true);
-            optimalCrossAsync = new GetOptimalCross(realScramble,
+            optimalCrossAsync = new GetOptimalCross(realScramble == null ? null : realScramble.getScramble(),
                                                     optimalCross, optimalXCross,
                                                     showHintsXCrossEnabled,
                                                     isRunning,
@@ -1458,7 +1485,10 @@ public class                                                                    
             scrambleGeneratorAsync = new GenerateScrambleSequence();
             scrambleGeneratorAsync.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         } else if (currentTimerMode.equals(TIMER_MODE_TRAINER)) {
-            setScramble(TrainerScrambler.generateTrainerCase(getContext(), currentSubset, currentPuzzleCategory));
+            TrainerCase tc = TrainerScrambler.generateTrainerCase(getContext(), currentSubset, currentPuzzleCategory);
+            setScramble(tc);
+            // TODO: Somehow prevent starting the timer if the case is invalid (e.g., no cases are
+            //       selected)
             canShowHint = false;
             hideButtons(true, true);
         }
@@ -1562,7 +1592,7 @@ public class                                                                    
 
         @Override
         protected void onPostExecute(String scramble) {
-            setScramble(scramble);
+            setScramble(TrainerCase.makeValid("", scramble));
         }
     }
 
@@ -1570,9 +1600,9 @@ public class                                                                    
      * Updates everything related to displaying the current scramble
      * Ex. scramble image, box, text, dialogs
      */
-    private void setScramble(final String scramble) {
+    private void setScramble(final TrainerCase scramble) {
         realScramble = scramble;
-        scrambleText.setText(scramble);
+        scrambleText.setText(scramble == null ? "" : scramble.getScramble());
         scrambleText.post(() -> chronometer.post(() -> {
                     if (scrambleText != null) {
                         // Calculate surrounding layouts to make sure the scramble text doesn't intersect any element
@@ -1626,7 +1656,7 @@ public class                                                                    
 
         // Broadcast the new scramble
         new BroadcastBuilder(CATEGORY_UI_INTERACTIONS, ACTION_SCRAMBLE_MODIFIED)
-                .scramble(realScramble)
+                .scramble(realScramble == null ? null : realScramble.getScramble())
                 .broadcast();
     }
 
@@ -1634,7 +1664,7 @@ public class                                                                    
         @Override
         public void onClick(View v) {
             scrambleDialog = new BottomSheetDetailDialog();
-            scrambleDialog.setDetailText(realScramble);
+            scrambleDialog.setDetailText(realScramble == null ? null : realScramble.getScramble());
             scrambleDialog.setDetailTextSize(scrambleTextSize);
             if (canShowHint && showHintsEnabled && currentPuzzle.equals(TYPE_333)) {
                 getNewOptimalCross();
@@ -1651,7 +1681,7 @@ public class                                                                    
         protected Drawable doInBackground(Void... voids) {
             return generator.generateImageFromScramble(
                     PreferenceManager.getDefaultSharedPreferences(TwistyTimer.getAppContext()),
-                    realScramble);
+                    realScramble == null ? null : realScramble.getScramble());
         }
 
         @Override

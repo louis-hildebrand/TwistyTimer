@@ -256,10 +256,10 @@ public abstract class TrainerScrambler {
     /**
      * Generates a random trainer case from the selected cases
      */
-    public static String generateTrainerCase(Context context, TrainerSubset subset, String category) {
+    public static TrainerCase generateTrainerCase(Context context, TrainerSubset subset, String category) {
         List<String> allowedCases = new ArrayList<>(fetchSelectedCaseSet(subset, category, context));
         if (allowedCases.isEmpty()) {
-            return context.getString(R.string.trainer_help_message);
+            return TrainerCase.makeInvalid(context.getString(R.string.trainer_help_message));
         }
         String caseName = allowedCases.get(random.nextInt(allowedCases.size()));
 
@@ -274,7 +274,7 @@ public abstract class TrainerScrambler {
                     letterScheme = new LetterScheme(letterSchemeStr);
                 }
                 catch (IllegalArgumentException e) {
-                    return context.getString(R.string.trainer_help_invalid_letter_scheme);
+                    return TrainerCase.makeInvalid(context.getString(R.string.trainer_help_invalid_letter_scheme));
                 }
 
                 String bufferStr = Prefs.getString(R.string.pk_corner_buffer, context.getString(R.string.default_corner_buffer));
@@ -283,7 +283,7 @@ public abstract class TrainerScrambler {
                     buffer = CornerSticker.parse(bufferStr);
                 }
                 catch (IllegalArgumentException e) {
-                    return context.getString(R.string.trainer_help_invalid_corner_buffer);
+                    return TrainerCase.makeInvalid(context.getString(R.string.trainer_help_invalid_corner_buffer));
                 }
 
                 return generateThreeStyleTrainerCase(context, subset, caseName, letterScheme, buffer);
@@ -292,7 +292,7 @@ public abstract class TrainerScrambler {
         }
     }
 
-    private static String generateOLLPLLTrainerCase(Context context, TrainerSubset subset, String caseName) {
+    private static TrainerCase generateOLLPLLTrainerCase(Context context, TrainerSubset subset, String caseName) {
         String caseAlg = fetchCaseAlgorithm(context, subset.name(), caseName);
 
         CubePuzzle.CubeState state;
@@ -300,14 +300,16 @@ public abstract class TrainerScrambler {
             state = (CubePuzzle.CubeState) solved.applyAlgorithm(caseAlg);
         } catch (InvalidScrambleException e) {
             e.printStackTrace();
-            return "";
+            // Should never happen
+            return TrainerCase.makeInvalid("Failed to generate scramble because the stored solution is invalid.");
         }
         String scramble = ((ThreeByThreeCubePuzzle) puzzle).solveIn(state, 20, null, null);
+        scramble = PuzzleUtils.applyRotationForAlgorithm(scramble, Y_ROTATIONS[random.nextInt(4)]);
 
-        return PuzzleUtils.applyRotationForAlgorithm(scramble, Y_ROTATIONS[random.nextInt(4)]);
+        return TrainerCase.makeValid(caseName, scramble);
     }
 
-    private static String generateThreeStyleTrainerCase(Context context, TrainerSubset subset, String caseName, LetterScheme scheme, CornerSticker buffer) {
+    private static TrainerCase generateThreeStyleTrainerCase(Context context, TrainerSubset subset, String caseName, LetterScheme scheme, CornerSticker buffer) {
         String rotateBufferAlg = bufferToUFR(buffer);
         LetterScheme rotatedScheme = scheme.rotate(rotateBufferAlg);
 
@@ -333,7 +335,8 @@ public abstract class TrainerScrambler {
             state = (CubePuzzle.CubeState) solved.applyAlgorithm(alg);
         } catch (InvalidScrambleException e) {
             e.printStackTrace();
-            return "";
+            // Should never happen
+            return TrainerCase.makeInvalid("Failed to generate scramble because the stored solution is invalid.");
         }
 
         // Use firstAxisRestriction and lastAxisRestriction in the puzzle.solveIn() method to
@@ -351,8 +354,9 @@ public abstract class TrainerScrambler {
         String scramble = ((ThreeByThreeCubePuzzle) puzzle).solveIn(state, 20, lastMoveFace, firstMoveFace);
 
         scramble = String.format("%s %s %s", suffix, scramble, prefix);
+        scramble = PuzzleUtils.applyRotationsForAlgorithm(scramble, PuzzleUtils.invertRotations(rotateBufferAlg));
 
-        return PuzzleUtils.applyRotationsForAlgorithm(scramble, PuzzleUtils.invertRotations(rotateBufferAlg));
+        return TrainerCase.makeValid(caseName, scramble);
     }
 
     private static boolean isValidAxis(String axis) {

@@ -392,6 +392,10 @@ public class PuzzleUtils {
      * Example: applyRotationForAlgorithm("R U R'", "y") = "F U F'".
      */
     public static String applyRotationForAlgorithm(String alg, String rot) {
+        rot = (rot == null ? "" : rot).trim();
+        if (rot.isEmpty()) {
+            return alg;
+        }
         HashMap<String, String> map = new HashMap<>();
         switch (rot) {
             case "x":
