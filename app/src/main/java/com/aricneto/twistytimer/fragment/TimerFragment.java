@@ -1402,8 +1402,8 @@ public class                                                                    
     public void onSaveInstanceState(Bundle outState) {
         // TODO: Also save whether or not we're in trainer mode?
         super.onSaveInstanceState(outState);
-        outState.putString(SCRAMBLE, realScramble == null ? "" : realScramble.getName());
-        outState.putString(TRAINER_CASE_NAME, realScramble == null ? null : realScramble.getScramble());
+        outState.putString(SCRAMBLE, realScramble == null ? "" : realScramble.getScramble());
+        outState.putString(TRAINER_CASE_NAME, realScramble == null ? null : realScramble.getName());
         outState.putBoolean(IS_SCRAMBLE_VALID, realScramble == null || realScramble.isValid());
         outState.putString(PUZZLE, currentPuzzle);
         outState.putBoolean(HAS_STOPPED_TIMER_ONCE, hasStoppedTimerOnce);
