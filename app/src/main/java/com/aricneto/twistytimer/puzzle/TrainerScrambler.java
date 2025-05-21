@@ -9,13 +9,13 @@ import com.aricneto.twistytimer.utils.Prefs;
 import com.aricneto.twistytimer.utils.PuzzleUtils;
 
 import net.gnehzr.tnoodle.scrambles.InvalidScrambleException;
-import net.gnehzr.tnoodle.scrambles.Puzzle;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -356,7 +356,7 @@ public abstract class TrainerScrambler {
         scramble = String.format("%s %s %s", suffix, scramble, prefix);
         scramble = PuzzleUtils.applyRotationsForAlgorithm(scramble, PuzzleUtils.invertRotations(rotateBufferAlg));
 
-        return TrainerCase.makeValid(caseName, scramble);
+        return TrainerCase.makeValid(name3SCCase(caseName, scheme), scramble);
     }
 
     private static boolean isValidAxis(String axis) {
@@ -366,6 +366,57 @@ public abstract class TrainerScrambler {
                 || "B".equals(axis)
                 || "L".equals(axis)
                 || "D".equals(axis);
+    }
+
+    /**
+     * Choose a user-friendly name for a 3-style corners case.
+     *
+     * @param caseName The case as a 2-character string in the user's chosen letter scheme.
+     * @param scheme The user's letter scheme.
+     * @return The name to show the user.
+     */
+    private static String name3SCCase(@NotNull String caseName, LetterScheme scheme) {
+        if (caseName.length() != 2) {
+            String msg = String.format(
+                    Locale.US,
+                    "Expected a 2-letter case name, but got %d letters.",
+                    caseName.length());
+            throw new IllegalArgumentException(msg);
+        }
+        String speffzCase = scheme.toSpeffz(caseName).toUpperCase();
+
+        Character speffzWhiteOrYellowSticker = nameSpeffzCornerTwist(speffzCase);
+        if (speffzWhiteOrYellowSticker != null) {
+            char whiteOrYellowSticker = scheme.fromSpeffz(speffzWhiteOrYellowSticker);
+            String twist = Prefs.getString(R.string.twist, "Twist");
+            return String.format("%s %c", twist, whiteOrYellowSticker);
+        }
+
+        return caseName;
+    }
+
+    /**
+     * If this is a corner twist case, find the white or yellow sticker (assuming white and yellow
+     * are the top and bottom colours, respectively).
+     *
+     * @param speffzCase The case as a 2-character string in the Speffz letter scheme.
+     * @return The white or yellow sticker in the Speffz letter scheme.
+     */
+    private static Character nameSpeffzCornerTwist(String speffzCase) {
+        String[] corners = {"ARE", "BQN", "CJM", "DIF", "ULG", "VKP", "WTO", "XSH"};
+        for (String corner : corners) {
+            // e.g., "BQNB"
+            String forwardCycle = corner + corner.charAt(0);
+            if (forwardCycle.contains(speffzCase)) {
+                return forwardCycle.charAt(2);
+            }
+            // e.g., "BNQB"
+            String backwardCycle = new StringBuilder(forwardCycle).reverse().toString();
+            if (backwardCycle.contains(speffzCase)) {
+                return backwardCycle.charAt(2);
+            }
+        }
+        return null;
     }
 
     /**

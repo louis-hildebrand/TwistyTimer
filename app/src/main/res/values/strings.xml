@@ -459,5 +459,6 @@
         Cases are pairs of letters, like AB or LH.
         For example, the regular expression "A|LH" matches all cases starting or ending with A (AB, DA, etc.) as well as LH.
     </string>
+    <string name="twist">Twist</string>
 
 </resources>
