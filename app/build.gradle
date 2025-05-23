@@ -59,7 +59,7 @@ dependencies {
     implementation 'androidx.preference:preference:1.2.1'
     implementation 'com.android.support:multidex:1.0.3'
     // Butterknife ("apt" dependency is defined in root "build.gradle" script).
-    implementation 'com.jakewharton:butterknife:10.0.0'
+    implementation 'com.jakewharton:butterknife:10.2.3'
     testImplementation project(':app')
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     // Observable scrollview
