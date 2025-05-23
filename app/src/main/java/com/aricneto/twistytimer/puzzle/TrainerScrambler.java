@@ -180,16 +180,27 @@ public abstract class TrainerScrambler {
         nonBufferStickers.remove(rotatedScheme.fromSpeffz('J'));
         nonBufferStickers.remove(rotatedScheme.fromSpeffz('M'));
 
-        Set<String> selectedCases = new HashSet<>();
+        // Each corner twist case has one name but three IDs.
+        // (TODO: Maybe it would be better to use the case name everywhere and get rid of the ID.)
+        // To get an accurate count of the number of selected cases, don't add a given case name
+        // more than once.
+        Set<String> selectedCaseNames = new HashSet<>();
+        Set<String> selectedCaseIds = new HashSet<>();
         for (char c1 : nonBufferStickers) {
             for (char c2 : nonBufferStickers) {
-                if (c1 != c2 && p.matcher("" + c1 + c2).find()) {
-                    selectedCases.add("" + c1 + c2);
+                if (c1 == c2) {
+                    continue;
+                }
+                String caseId = "" + c1 + c2;
+                String caseName = name3SCCase(caseId, scheme);
+                if (!selectedCaseNames.contains(caseName) && p.matcher(caseName).find()) {
+                    selectedCaseNames.add(caseName);
+                    selectedCaseIds.add(caseId);
                 }
             }
         }
 
-        return selectedCases;
+        return selectedCaseIds;
     }
 
     /**
@@ -261,12 +272,12 @@ public abstract class TrainerScrambler {
         if (allowedCases.isEmpty()) {
             return TrainerCase.makeInvalid(context.getString(R.string.trainer_help_message));
         }
-        String caseName = allowedCases.get(random.nextInt(allowedCases.size()));
+        String caseId = allowedCases.get(random.nextInt(allowedCases.size()));
 
         switch (subset) {
             case OLL:
             case PLL:
-                return generateOLLPLLTrainerCase(context, subset, caseName);
+                return generateOLLPLLTrainerCase(context, subset, caseId);
             case THREE_STYLE_CORNERS:
                 String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
                 LetterScheme letterScheme;
@@ -286,7 +297,7 @@ public abstract class TrainerScrambler {
                     return TrainerCase.makeInvalid(context.getString(R.string.trainer_help_invalid_corner_buffer));
                 }
 
-                return generateThreeStyleTrainerCase(context, subset, caseName, letterScheme, buffer);
+                return generateThreeStyleTrainerCase(context, subset, caseId, letterScheme, buffer);
             default:
                 throw new IllegalArgumentException(String.format("Unsupported trainer subset %s.", subset.name()));
         }
@@ -309,11 +320,11 @@ public abstract class TrainerScrambler {
         return TrainerCase.makeValid(caseName, scramble);
     }
 
-    private static TrainerCase generateThreeStyleTrainerCase(Context context, TrainerSubset subset, String caseName, LetterScheme scheme, CornerSticker buffer) {
+    private static TrainerCase generateThreeStyleTrainerCase(Context context, TrainerSubset subset, String caseId, LetterScheme scheme, CornerSticker buffer) {
         String rotateBufferAlg = bufferToUFR(buffer);
         LetterScheme rotatedScheme = scheme.rotate(rotateBufferAlg);
 
-        String speffzCase = rotatedScheme.toSpeffz(caseName);
+        String speffzCase = rotatedScheme.toSpeffz(caseId);
         String alg = fetchCaseAlgorithm(context, subset.name(), speffzCase);
         // Add a random prefix and suffix so that the scramble isn't the same each time.
         // Let A be the solution for this case, P be the random prefix, and S be the random suffix.
@@ -350,13 +361,13 @@ public abstract class TrainerScrambler {
         if (!isValidAxis(lastMoveFace)) {
             lastMoveFace = null;
         }
-        logger.info(String.format("Searching for scramble for case \"%s\" with firstAxisRestriction=\"%s\" and lastAxisRestriction=\"%s\".", caseName, lastMoveFace, firstMoveFace));
+        logger.info(String.format("Searching for scramble for case \"%s\" with firstAxisRestriction=\"%s\" and lastAxisRestriction=\"%s\".", caseId, lastMoveFace, firstMoveFace));
         String scramble = ((ThreeByThreeCubePuzzle) puzzle).solveIn(state, 20, lastMoveFace, firstMoveFace);
 
         scramble = String.format("%s %s %s", suffix, scramble, prefix);
         scramble = PuzzleUtils.applyRotationsForAlgorithm(scramble, PuzzleUtils.invertRotations(rotateBufferAlg));
 
-        return TrainerCase.makeValid(name3SCCase(caseName, scheme), scramble);
+        return TrainerCase.makeValid(name3SCCase(caseId, scheme), scramble);
     }
 
     private static boolean isValidAxis(String axis) {
@@ -371,28 +382,28 @@ public abstract class TrainerScrambler {
     /**
      * Choose a user-friendly name for a 3-style corners case.
      *
-     * @param caseName The case as a 2-character string in the user's chosen letter scheme.
+     * @param caseId The 2-character case ID (in the user's chosen letter scheme).
      * @param scheme The user's letter scheme.
      * @return The name to show the user.
      */
-    private static String name3SCCase(@NotNull String caseName, LetterScheme scheme) {
-        if (caseName.length() != 2) {
+    private static String name3SCCase(@NotNull String caseId, LetterScheme scheme) {
+        if (caseId.length() != 2) {
             String msg = String.format(
                     Locale.US,
                     "Expected a 2-letter case name, but got %d letters.",
-                    caseName.length());
+                    caseId.length());
             throw new IllegalArgumentException(msg);
         }
-        String speffzCase = scheme.toSpeffz(caseName).toUpperCase();
+        String speffzCase = scheme.toSpeffz(caseId).toUpperCase();
 
         Character speffzWhiteOrYellowSticker = nameSpeffzCornerTwist(speffzCase);
         if (speffzWhiteOrYellowSticker != null) {
             char whiteOrYellowSticker = scheme.fromSpeffz(speffzWhiteOrYellowSticker);
-            String twist = Prefs.getString(R.string.twist, "Twist");
-            return String.format("%s %c", twist, whiteOrYellowSticker);
+            String twist = Prefs.getString(R.string.corner_twist_case_prefix, "@");
+            return String.format("%s%c", twist, whiteOrYellowSticker);
         }
 
-        return caseName;
+        return caseId;
     }
 
     /**
