@@ -1,10 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:keepScreenOn="true"
+    android:visibility="visible"
     tools:background="?colorPrimary"
     tools:context="com.aricneto.twistytimer.fragment.TimerFragment">
 
@@ -17,15 +18,15 @@
 
     <com.skyfishjy.library.RippleBackground
         android:id="@+id/rippleBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
         app:rb_color="?colorAccent"
         app:rb_duration="3000"
         app:rb_radius="64dp"
         app:rb_rippleAmount="1"
         app:rb_scale="10"
-        tools:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="false" />
+        tools:visibility="gone" />
 
     <include
         android:id="@+id/scramble_box"
@@ -34,15 +35,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="?actionBarPadding"/>
+        android:layout_marginTop="?actionBarPadding"
+        android:layout_marginRight="8dp" />
 
     <TextView
         android:id="@+id/congratsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/scramble_box"
         android:layout_alignWithParentIfMissing="true"
+        android:layout_below="@id/scramble_box"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -56,23 +57,39 @@
         android:visibility="gone"
         tools:visibility="visible" />
 
+    <TextView
+        android:id="@+id/timerTrainerCase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="?actionBarPadding"
+        android:layout_marginRight="8dp"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:text=""
+        android:textColor="?colorTimerText"
+        android:textColorHighlight="?colorAccent"
+        android:textIsSelectable="false"
+        android:textSize="76sp"
+        android:visibility="gone" />
+
     <com.aricneto.twistytimer.layout.ChronometerMilli
         android:id="@+id/chronometer"
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_centerInParent="true"
-        android:alpha=".95"
-        android:gravity="center"
-        android:fontFamily="@font/lato_bold"
-        android:text="42.35"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMaxTextSize="90sp"
-        android:textSize="76sp"
+        android:alpha=".95"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:text="42.35"
         android:textColor="?colorTimerText"
         android:textColorHighlight="?colorAccent"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:textSize="76sp"
+        app:autoSizeMaxTextSize="90sp"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/inspection_text"
@@ -80,13 +97,13 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/chronometer"
         android:layout_centerHorizontal="true"
-        android:textStyle="bold"
         android:text="Inspection"
         android:textAllCaps="true"
         android:textColor="?colorTimerText"
         android:textColorHighlight="?colorAccent"
         android:textIsSelectable="false"
         android:textSize="16sp"
+        android:textStyle="bold"
         android:visibility="gone"
         tools:visibility="visible" />
 
@@ -101,20 +118,20 @@
 
     <ImageView
         android:id="@+id/qa_undo"
-        app:srcCompat="@drawable/ic_outline_undo_24px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignBaseline="@id/chronometer"
-        android:background="?selectableItemBackgroundBorderless"
-        android:tint="?colorTimerText"
+        android:layout_centerHorizontal="true"
         android:alpha=".9"
-        android:paddingTop="24dp"
-        android:paddingBottom="8dp"
+        android:background="?selectableItemBackgroundBorderless"
         android:paddingLeft="8dp"
+        android:paddingTop="24dp"
         android:paddingRight="8dp"
-        tools:visibility="visible"
-        android:visibility="gone"/>
+        android:paddingBottom="8dp"
+        android:tint="?colorTimerText"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_outline_undo_24px"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/scramble_img"
@@ -128,7 +145,6 @@
 
     <me.zhanghai.android.materialprogressbar.MaterialProgressBar
         android:id="@+id/progressSpinner"
-        app:mpb_progressStyle="circular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -136,28 +152,29 @@
         android:layout_marginBottom="?tabBarPadding"
         android:indeterminate="true"
         android:visibility="invisible"
+        app:mpb_progressStyle="circular"
         tools:visibility="visible" />
 
     <TextView
         android:id="@+id/detail_average_record_message"
-        android:layout_above="@id/sessionDetailTextAverage"
-        android:layout_toRightOf="@id/scramble_img"
-        android:layout_alignRight="@id/sessionDetailTextAverage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/sessionDetailTextAverage"
+        android:layout_alignRight="@id/sessionDetailTextAverage"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_toRightOf="@id/scramble_img"
+        android:gravity="center"
         android:paddingLeft="6dp"
         android:paddingTop="2dp"
         android:paddingRight="6dp"
         android:paddingBottom="4dp"
-        android:gravity="center"
-        android:visibility="gone"
-        tools:visibility="visible"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="4dp"
         android:text="@string/timer_detail_average_record_message"
         android:textColor="?colorTimerText"
+        android:textSize="12sp"
         android:textStyle="bold"
-        android:textSize="12sp" />
+        android:visibility="gone"
+        tools:visibility="visible" />
 
 
     <TextView
@@ -169,24 +186,24 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="?tabBarPadding"
         android:alpha=".85"
-        android:textColor="?colorTimerText"
-        android:textSize="12sp"
         android:fontFamily="@font/lato"
         android:gravity="right"
+        android:textColor="?colorTimerText"
+        android:textSize="12sp"
         tools:text="Ao5: 12.2\nAo12: 12.2\nAo50: 12.2\nAo100: 23.21" />
 
     <TextView
         android:id="@+id/sessionDetailTextOther"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
         android:layout_marginBottom="?tabBarPadding"
         android:alpha=".85"
+        android:fontFamily="@font/lato"
         android:gravity="left"
         android:textColor="?colorTimerText"
-        android:fontFamily="@font/lato"
         android:textSize="12sp"
         tools:text="Dev: 13.21\nBest: 12.14\nWorst: 45.21\nCount: 23.21" />
 
@@ -195,8 +212,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/scramble_box"
-        tools:visibility="gone"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:visibility="gone" />
 
 
 </RelativeLayout>

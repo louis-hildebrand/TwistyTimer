@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE resources [
+    <!ENTITY corner_twist_case_prefix "@">
+]>
 <resources>
     <string name="action_add">Add</string>
     <string name="action_archive">Archive</string>
@@ -456,8 +459,13 @@
     <string name="trainer_help_invalid_letter_scheme">The selected letter scheme is invalid. Please select a valid one in the trainer settings.</string>
     <string name="trainer_help_invalid_corner_buffer">The selected corner buffer is invalid. Please select a valid one in the trainer settings.</string>
     <string name="regex_case_select_instructions">Enter a <a href="https://en.m.wikipedia.org/wiki/Regular_expression">regular expression</a> that matches the cases you want to select.
-        Cases are pairs of letters, like AB or LH.
-        For example, the regular expression "A|LH" matches all cases starting or ending with A (AB, DA, etc.) as well as LH.
+
+        \n\nNormal cases are pairs of letters, like AB or LH.
+        For example, the regular expression \"A|LH\" (without quotation marks) matches all cases starting or ending with A (AB, DA, etc.) as well as LH.
+
+        \n\nCorner twist cases are \"&corner_twist_case_prefix;\" followed by the white or yellow sticker (assuming white and yellow are the top and bottom colors).
+        For example, the regular expression \"&corner_twist_case_prefix;E\" (without quotation marks) matches the corner twist case that rotates E to A, assuming E is LUB and A is UBL in your letter scheme.
     </string>
+    <string name="corner_twist_case_prefix">&corner_twist_case_prefix;</string>
 
 </resources>

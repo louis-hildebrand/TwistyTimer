@@ -54,6 +54,22 @@
         android:visibility="gone"
         tools:visibility="visible" />
 
+    <TextView
+        android:id="@+id/timerTrainerCase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="?actionBarPadding"
+        android:layout_marginRight="8dp"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:text=""
+        android:textColor="?colorTimerText"
+        android:textColorHighlight="?colorAccent"
+        android:textIsSelectable="false"
+        android:textSize="76sp"
+        android:visibility="gone" />
+
     <com.aricneto.twistytimer.layout.ChronometerMilli
         android:id="@+id/chronometer"
         android:layout_width="match_parent"
