@@ -1351,8 +1351,7 @@ public class                                                                    
         chronometer.start();
         chronometer.setHighlighted(false); // Clear any start cue or hold-for-start highlight.
 
-        boolean shouldShowName = TIMER_MODE_TRAINER.equals(currentTimerMode);
-        if (shouldShowName) {
+        if (shouldShowTrainerCaseName()) {
             trainerCaseText.setText(realScramble == null ? "" : realScramble.getName());
             trainerCaseText.setVisibility(View.VISIBLE);
         } else {
@@ -1369,6 +1368,11 @@ public class                                                                    
             currentScramble = realScramble;
             generateNewScramble();
         }
+    }
+
+    private boolean shouldShowTrainerCaseName() {
+        return TIMER_MODE_TRAINER.equals(currentTimerMode)
+                && TrainerScrambler.TrainerSubset.THREE_STYLE_CORNERS.equals(currentSubset);
     }
 
     /**
