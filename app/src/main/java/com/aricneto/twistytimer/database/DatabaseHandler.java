@@ -64,6 +64,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public static final String SUBSET_OLL = "OLL";
     public static final String SUBSET_PLL = "PLL";
+    public static final String SUBSET_COLL = "COLL";
 
     private static final String RED                = "R";
     private static final String GRE                = "G";
@@ -73,7 +74,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String YEL                = "Y";
     private static final String NUL                = "N";
     // Database Version
-    private static final int    DATABASE_VERSION   = 10;
+    private static final int    DATABASE_VERSION   = 11;
     // Database Name
     private static final String DATABASE_NAME      = "databaseManager";
     private static final String CREATE_TABLE_TIMES =
@@ -97,6 +98,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             + KEY_ALGS + " TEXT,"
             + KEY_PROGRESS + " INTEGER"
             + ")";
+    private static final String CLEAR_TABLE_ALGS = "DELETE FROM " + TABLE_ALGS;
 
     /**
      * An interface for notification of the progress of bulk database operations.
@@ -133,6 +135,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Drop older tables if existed
         Log.d("Database upgrade", "Upgrading from"
             + Integer.toString(oldVersion) + " to " + Integer.toString(newVersion));
+
+        createInitialAlgs(db);
+
         switch (oldVersion) {
             case 6:
                 db.execSQL("ALTER TABLE times ADD COLUMN " + KEY_HISTORY + " BOOLEAN DEFAULT 0");
@@ -723,6 +728,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // TODO: this info should REALLY be in a separate file. I'll get to it when I add other alg sets.
 
     private void createInitialAlgs(SQLiteDatabase db) {
+        db.execSQL(CLEAR_TABLE_ALGS);
+
         // OLL FIXME: the state field is deprecated. use the reference_states xml file
         createAlg(db, SUBSET_OLL, "OLL 01", "NNNNYNNNNNYNYYYNYNYYY", AlgUtils.getDefaultAlgs(SUBSET_OLL, "OLL 01"));
         createAlg(db, SUBSET_OLL, "OLL 02", "NNNNYNNNNNYYNYNYYNYYY", AlgUtils.getDefaultAlgs(SUBSET_OLL, "OLL 02"));
@@ -804,5 +811,47 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         createAlg(db, SUBSET_PLL, "T", "YYYYYYYYYOOGRBOGRRBGB", AlgUtils.getDefaultAlgs(SUBSET_PLL, "T"));
         createAlg(db, SUBSET_PLL, "V", "YYYYYYYYYRGOGOBORRBBG", AlgUtils.getDefaultAlgs(SUBSET_PLL, "V"));
         createAlg(db, SUBSET_PLL, "Y", "YYYYYYYYYRBOGGBORRBOG", AlgUtils.getDefaultAlgs(SUBSET_PLL, "Y"));
+
+        // COLL
+        createAlg(db, SUBSET_COLL, "AS1", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "AS1"));
+        createAlg(db, SUBSET_COLL, "AS2", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "AS2"));
+        createAlg(db, SUBSET_COLL, "AS3", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "AS3"));
+        createAlg(db, SUBSET_COLL, "AS4", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "AS4"));
+        createAlg(db, SUBSET_COLL, "AS5", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "AS5"));
+        createAlg(db, SUBSET_COLL, "AS6", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "AS6"));
+        createAlg(db, SUBSET_COLL, "H1", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "H1"));
+        createAlg(db, SUBSET_COLL, "H2", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "H2"));
+        createAlg(db, SUBSET_COLL, "H3", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "H3"));
+        createAlg(db, SUBSET_COLL, "H4", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "H4"));
+        createAlg(db, SUBSET_COLL, "L1", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "L1"));
+        createAlg(db, SUBSET_COLL, "L2", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "L2"));
+        createAlg(db, SUBSET_COLL, "L3", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "L3"));
+        createAlg(db, SUBSET_COLL, "L4", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "L4"));
+        createAlg(db, SUBSET_COLL, "L5", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "L5"));
+        createAlg(db, SUBSET_COLL, "L6", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "L6"));
+        createAlg(db, SUBSET_COLL, "P1", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "P1"));
+        createAlg(db, SUBSET_COLL, "P2", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "P2"));
+        createAlg(db, SUBSET_COLL, "P3", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "P3"));
+        createAlg(db, SUBSET_COLL, "P4", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "P4"));
+        createAlg(db, SUBSET_COLL, "P5", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "P5"));
+        createAlg(db, SUBSET_COLL, "P6", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "P6"));
+        createAlg(db, SUBSET_COLL, "S1", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "S1"));
+        createAlg(db, SUBSET_COLL, "S2", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "S2"));
+        createAlg(db, SUBSET_COLL, "S3", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "S3"));
+        createAlg(db, SUBSET_COLL, "S4", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "S4"));
+        createAlg(db, SUBSET_COLL, "S5", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "S5"));
+        createAlg(db, SUBSET_COLL, "S6", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "S6"));
+        createAlg(db, SUBSET_COLL, "T1", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "T1"));
+        createAlg(db, SUBSET_COLL, "T2", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "T2"));
+        createAlg(db, SUBSET_COLL, "T3", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "T3"));
+        createAlg(db, SUBSET_COLL, "T4", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "T4"));
+        createAlg(db, SUBSET_COLL, "T5", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "T5"));
+        createAlg(db, SUBSET_COLL, "T6", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "T6"));
+        createAlg(db, SUBSET_COLL, "U1", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "U1"));
+        createAlg(db, SUBSET_COLL, "U2", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "U2"));
+        createAlg(db, SUBSET_COLL, "U3", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "U3"));
+        createAlg(db, SUBSET_COLL, "U4", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "U4"));
+        createAlg(db, SUBSET_COLL, "U5", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "U5"));
+        createAlg(db, SUBSET_COLL, "U6", "", AlgUtils.getDefaultAlgs(SUBSET_COLL, "U6"));
     }
 }

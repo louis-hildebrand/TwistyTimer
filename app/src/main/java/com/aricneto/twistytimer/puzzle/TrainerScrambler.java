@@ -50,6 +50,7 @@ public abstract class TrainerScrambler {
     public enum TrainerSubset {
         OLL,
         PLL,
+        COLL,
         THREE_STYLE_CORNERS;
 
         @Override
@@ -60,6 +61,8 @@ public abstract class TrainerScrambler {
                     return "OLL";
                 case PLL:
                     return "PLL";
+                case COLL:
+                    return "COLL";
                 case THREE_STYLE_CORNERS:
                     return "3-style corners";
                 default:
@@ -121,6 +124,7 @@ public abstract class TrainerScrambler {
         switch (subset) {
             case OLL:
             case PLL:
+            case COLL:
                 return caseSelection;
             case THREE_STYLE_CORNERS:
                 String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
@@ -277,7 +281,8 @@ public abstract class TrainerScrambler {
         switch (subset) {
             case OLL:
             case PLL:
-                return generateOLLPLLTrainerCase(context, subset, caseId);
+            case COLL:
+                return generateLastLayerTrainerCase(context, subset, caseId);
             case THREE_STYLE_CORNERS:
                 String letterSchemeStr = Prefs.getString(R.string.pk_corner_letter_scheme, LetterScheme.SPEFFZ_LETTERS);
                 LetterScheme letterScheme;
@@ -303,7 +308,7 @@ public abstract class TrainerScrambler {
         }
     }
 
-    private static TrainerCase generateOLLPLLTrainerCase(Context context, TrainerSubset subset, String caseName) {
+    private static TrainerCase generateLastLayerTrainerCase(Context context, TrainerSubset subset, String caseName) {
         String caseAlg = fetchCaseAlgorithm(context, subset.name(), caseName);
 
         CubePuzzle.CubeState state;

@@ -1,32 +1,41 @@
 package com.aricneto.twistytimer.activity;
 
-import android.Manifest;
+import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_COMMENT;
+import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_DATE;
+import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_PENALTY;
+import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_SCRAMBLE;
+import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_SUBTYPE;
+import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_TIME;
+import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_TYPE;
+import static com.aricneto.twistytimer.database.DatabaseHandler.ProgressListener;
+import static com.aricneto.twistytimer.utils.TTIntent.ACTION_TIMES_MODIFIED;
+import static com.aricneto.twistytimer.utils.TTIntent.CATEGORY_TIME_DATA_CHANGES;
+import static com.aricneto.twistytimer.utils.TTIntent.broadcast;
+
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.core.content.ContextCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -66,8 +75,6 @@ import com.opencsv.CSVReader;
 import org.joda.time.DateTime;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -78,18 +85,6 @@ import java.util.List;
 import java.util.Random;
 
 import butterknife.ButterKnife;
-
-import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_COMMENT;
-import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_DATE;
-import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_PENALTY;
-import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_SCRAMBLE;
-import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_SUBTYPE;
-import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_TIME;
-import static com.aricneto.twistytimer.database.DatabaseHandler.IDX_TYPE;
-import static com.aricneto.twistytimer.database.DatabaseHandler.ProgressListener;
-import static com.aricneto.twistytimer.utils.TTIntent.ACTION_TIMES_MODIFIED;
-import static com.aricneto.twistytimer.utils.TTIntent.CATEGORY_TIME_DATA_CHANGES;
-import static com.aricneto.twistytimer.utils.TTIntent.broadcast;
 
 public class MainActivity extends AppCompatActivity
         implements BillingProcessor.IBillingHandler, ExportImportDialog.ExportImportCallbacks,
@@ -116,7 +111,8 @@ public class MainActivity extends AppCompatActivity
     private static final int SETTINGS_ID      = 5;
     private static final int TRAINER_OLL_ID      = 14;
     private static final int TRAINER_PLL_ID      = 15;
-    private static final int TRAINER_3STYLE_CORNERS_ID = 16;
+    private static final int TRAINER_COLL_ID = 16;
+    private static final int TRAINER_3STYLE_CORNERS_ID = 17;
 
 
     private static final int REQUEST_SETTING           = 42;
@@ -305,6 +301,13 @@ public class MainActivity extends AppCompatActivity
                                                 .withIconTintingEnabled(true)
                                                 .withIdentifier(TRAINER_PLL_ID),
                                         new SecondaryDrawerItem()
+                                                .withName(R.string.drawer_title_coll)
+                                                .withLevel(2)
+                                                // TODO: Add icon
+                                                .withIcon(R.drawable.ic_oll_black_24dp)
+                                                .withIconTintingEnabled(true)
+                                                .withIdentifier(TRAINER_COLL_ID),
+                                        new SecondaryDrawerItem()
                                                 .withName(R.string.drawer_title_3style_corners)
                                                 .withLevel(2)
                                                 .withIcon(R.drawable.ic_3style_corners_black_24dp)
@@ -420,6 +423,19 @@ public class MainActivity extends AppCompatActivity
                                                 .beginTransaction()
                                                 .replace(R.id.main_activity_container,
                                                          TimerFragmentMain.newInstance(TrainerScrambler.TrainerSubset.PLL.name(), "Normal", TimerFragment.TIMER_MODE_TRAINER, TrainerScrambler.TrainerSubset.PLL), "fragment_main")
+                                                .commit();
+                                    }
+                                });
+                                break;
+
+                            case TRAINER_COLL_ID:
+                                mDrawerToggle.runWhenIdle(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        fragmentManager
+                                                .beginTransaction()
+                                                .replace(R.id.main_activity_container,
+                                                        TimerFragmentMain.newInstance(TrainerScrambler.TrainerSubset.COLL.name(), "Normal", TimerFragment.TIMER_MODE_TRAINER, TrainerScrambler.TrainerSubset.COLL), "fragment_main")
                                                 .commit();
                                     }
                                 });
