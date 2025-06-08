@@ -303,8 +303,7 @@ public class MainActivity extends AppCompatActivity
                                         new SecondaryDrawerItem()
                                                 .withName(R.string.drawer_title_coll)
                                                 .withLevel(2)
-                                                // TODO: Add icon
-                                                .withIcon(R.drawable.ic_oll_black_24dp)
+                                                .withIcon(R.drawable.ic_coll_black_24dp)
                                                 .withIconTintingEnabled(true)
                                                 .withIdentifier(TRAINER_COLL_ID),
                                         new SecondaryDrawerItem()
