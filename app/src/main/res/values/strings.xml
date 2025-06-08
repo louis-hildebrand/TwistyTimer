@@ -106,6 +106,7 @@
     <string name="drawer_title_oll" translatable="false">OLL</string>
     <string name="drawer_title_other">Other</string>
     <string name="drawer_title_pll" translatable="false">PLL</string>
+    <string name="drawer_title_coll" translatable="false">COLL</string>
     <string name="drawer_title_3style_corners" translatable="false">3-style corners</string>
     <string name="drawer_title_reference">Reference</string>
     <string name="drawer_title_timer">Timer</string>

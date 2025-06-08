@@ -78,6 +78,16 @@ public class TrainerCursorAdapter extends AlgCursorAdapter {
                     selectedItems.addAll(Arrays.asList(pll_cases));
                 }
                 break;
+            case COLL:
+                if (size != 40) {
+                    for (String category : new String[] {"AS", "H", "L", "P", "S", "T", "U"}) {
+                        int numCases = "H".equals(category) ? 4 : 6;
+                        for (int i = 1; i <= numCases; i++) {
+                            selectedItems.add(category + i);
+                        }
+                    }
+                }
+                break;
             case THREE_STYLE_CORNERS:
                 throw new IllegalArgumentException("TrainerCursorAdapter should not be used for 3-style corners.");
         }

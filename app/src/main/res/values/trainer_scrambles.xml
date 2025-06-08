@@ -2669,6 +2669,126 @@
         <item>"R' F' U F U F' U' R' U' R F R' U R2"</item>
         <item>"R' F' U F R L2 U' B L B L' B2 U L2"</item>
     </string-array>
+    <string-array name="TRAINER_COLL_AS1">
+        <item>"L' U' L U' L' U2 L"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_AS2">
+        <item>"R' U2 F' R U R' U' R' F R2 U R' U R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_AS3">
+        <item>"R2 D R' U2 R D' R2 U' R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_AS4">
+        <item>"R' U' R U' R2 D' R U2 R' D R2"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_AS5">
+        <item>"L' U R U' L U R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_AS6">
+        <item>"R U' R' U2 R U' R' U2 R' D' R U R' D R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_H1">
+        <item>"R U2 R' U' R U R' U' R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_H2">
+        <item>"F R U' R' U R U2 R' U' R U R' U' F'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_H3">
+        <item>"R' F' R U2 R U2 R' F U' R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_H4">
+        <item>"F R U R' U' R U R' U' R U R' U' F'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_L1">
+        <item>"R' U' R U' R' U R U' R' U R U' R' U2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_L2">
+        <item>"U2 R' U2 R' D' R U2 R' D R2"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_L3">
+        <item>"U' R U2 R D R' U2 R D' R2"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_L4">
+        <item>"U Lw' U' L' U R U' L U x'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_L5">
+        <item>"F' Rw U R' U' Rw' F R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_L6">
+        <item>"U R' U' R U R' F' R U R' U' R' F R2"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_P1">
+        <item>"R U2 R2 U' R2 U' R2 U2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_P2">
+        <item>"R' F2 R U2 R U2 R' F2 U' R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_P3">
+        <item>"F U R U' R' U R U2 R' U' R U R' F'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_P4">
+        <item>"R U R' U' R' F R2 U R' U' R U R' U' F'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_P5">
+        <item>"R U R' U F' R U2 R' U2 R' F R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_P6">
+        <item>"R U2 R' U' F' R U2 R' U' R U' R' F R U' R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_S1">
+        <item>"R U R' U R U2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_S2">
+        <item>"L' U2 L U2 R U' L' U L R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_S3">
+        <item>"L' R U R' U' L U2 R U2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_S4">
+        <item>"U' R U R' U R U' R D R' U' R D' R2"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_S5">
+        <item>"R U' L' U R' U' L"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_S6">
+        <item>"F' R U2 R' U2 R' F2 R U R U' R' F'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_T1">
+        <item>"R U2 R' U' R U' R2 U2 R U R' U R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_T2">
+        <item>"R' F R U R' U' R' F' R2 U' R' U2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_T3">
+        <item>"Lw' U' L U Lw F' L' F"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_T4">
+        <item>"F R U R' U' R U' R' U' R U R' F'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_T5">
+        <item>"Rw U R' U' Rw' F R F'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_T6">
+        <item>"R U' R2 D' Rw U2 Rw' D R2 U R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_U1">
+        <item>"R U R' U R U2 R2 U' R U' R' U2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_U2">
+        <item>"R' F R U' R' U' R U R' F' R U R' U' R' F R F' R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_U3">
+        <item>"R2 D R' U2 R D' R' U2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_U4">
+        <item>"R' F2 R U2 R U2 R' F2 R U2 R'"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_U5">
+        <item>"R2 D' R U2 R' D R U2 R"</item>
+    </string-array>
+    <string-array name="TRAINER_COLL_U6">
+        <item>"R2 D' R U R' D R U R U' R' U' R"</item>
+    </string-array>
     <string-array name="TRAINER_THREE_STYLE_CORNERS_AB">
         <item>"x R' U R' D2 R U' R' D2 R2 x'"</item>
     </string-array>

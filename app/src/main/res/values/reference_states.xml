@@ -84,5 +84,46 @@
         <item>XRGOXGYYYGBYYYOBYYYBXRROX</item>
         <item>XRBOXGYYYGOYYYGBYYYBXRROX</item>
     </string-array>
-
+    <string-array name="alg_reference_COLL">
+        <item>XRXYXYBYOBXYYYXGRYYOXYXGX</item>
+        <item>XGXYXYRYBRXYYYXBOYYOXYXGX</item>
+        <item>XRXYXYBYGOXYYYXBOYYGXYXRX</item>
+        <item>XOXYXYGYOBXYYYXRBYYGXYXRX</item>
+        <item>XRXYXYBYGOXYYYXGRYYBXYXOX</item>
+        <item>XBXYXRYYRGXYYYXBOYGYXYXOX</item>
+        <item>XYXYXOBYGOXYYYXRBYGRXYXYX</item>
+        <item>XBXBXYOYRYXYYYXYGYGYXRXOX</item>
+        <item>XOXBXYGYRYXYYYXYBYRYXOXGX</item>
+        <item>XYXYXRGYGOXYYYXRBYBOXYXYX</item>
+        <item>XRXBXYBYYOXYYYXRYYOGXGXYX</item>
+        <item>XOXBXYGYYOXYYYXBYYGRXRXYX</item>
+        <item>XRXOXYBYYGXYYYXRYYBOXGXYX</item>
+        <item>XOXGXYGYYRXYYYXBYYBOXRXYX</item>
+        <item>XGXBXYRYYOXYYYXBYYOGXRXYX</item>
+        <item>XOXBXYGYYOXYYYXRYYRBXGXYX</item>
+        <item>XRXYXYBYOBXYYYXYGYOGXRXYX</item>
+        <item>XRXYXYBYRGXYYYXYOYBOXGXYX</item>
+        <item>XYXYXOBYGOXYYYXYGYBYXRXRX</item>
+        <item>XBXYXYOYGOXYYYXYGYRBXRXYX</item>
+        <item>XGXBXYRYRYXYYYXBOYOGXYXYX</item>
+        <item>XYXYXBRYRGXYYYXYBYGYXOXOX</item>
+        <item>XYXOXBRYBYXYYYXRYYOGXGXYX</item>
+        <item>XYXOXGOYBYXYYYXBYYGRXRXYX</item>
+        <item>XYXRXOBYGYXYYYXBYYOGXRXYX</item>
+        <item>XYXBXRGYRYXYYYXOYYOGXBXYX</item>
+        <item>XYXOXRGYBYXYYYXBYYOGXRXYX</item>
+        <item>XYXBXOBYRYXYYYXGYYGRXOXYX</item>
+        <item>XOXRXYGYGYXYYYXOYYYRXBXBX</item>
+        <item>XGXGXOYYYRXYYYXYRYOYXBXBX</item>
+        <item>XGXYXOYYRGXYYYXBYYBOXRXYX</item>
+        <item>XRXOXGYYYGXYYYXYBYBYXOXRX</item>
+        <item>XYXGXGOYYRXYYYXRBYYBXYXOX</item>
+        <item>XYXRXBYYYBXYYYXYOYRYXGXGX</item>
+        <item>XBXBXRYYYOXYYYXGRYOGXYXYX</item>
+        <item>XYXYXRGYGOXYYYXOYYYRXBXBX</item>
+        <item>XGXRXOYYYBXYYYXGRYBOXYXYX</item>
+        <item>XRXOXGYYYGXYYYXBOYRBXYXYX</item>
+        <item>XYXYXBRYGOXYYYXOYYYGXBXRX</item>
+        <item>XYXYXOBYBRXYYYXGYYYGXOXRX</item>
+    </string-array>
 </resources>

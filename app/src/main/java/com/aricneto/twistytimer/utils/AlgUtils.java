@@ -32,6 +32,7 @@ public final class AlgUtils {
     private static String mSubset = "";
 
     private static List<String> CASES_PLL;
+    private static List<String> CASES_COLL;
 
     /**
      * This function returns a hashmap which contains the colors for each face of the cube
@@ -76,12 +77,20 @@ public final class AlgUtils {
     }
 
     /**
-     * Returns a array list containing all cases of a subset
-     * currently, we only have PLL subset with weird names,
-     * this function can be expanded in the future
-     * @return
+     * Returns a list containing all cases of a subset.
      */
-    private static List<String> getSubsetCases() {
+    private static List<String> getSubsetCases(String subset) {
+        switch (subset) {
+            case "PLL":
+                return getPLLCases();
+            case "COLL":
+                return getCOLLCases();
+            default:
+                throw new IllegalArgumentException(String.format("Unsupported subset: %s", subset));
+        }
+    }
+
+    private static List<String> getPLLCases() {
         if (CASES_PLL == null) {
             String[] casesPLL = {"H", "Ua", "Ub", "Z", "Aa", "Ab", "E", "F", "Ga", "Gb", "Gc", "Gd", "Ja", "Jb", "Na", "Nb", "Ra", "Rb", "T", "V", "Y"};
             CASES_PLL = new ArrayList<>(Arrays.asList(casesPLL));
@@ -89,14 +98,27 @@ public final class AlgUtils {
         return CASES_PLL;
     }
 
+    private static List<String> getCOLLCases() {
+        if (CASES_COLL == null) {
+            CASES_COLL = new ArrayList<>(40);
+            for (String category : new String[] {"AS", "H", "L", "P", "S", "T", "U"}) {
+                int numCases = "H".equals(category) ? 4 : 6;
+                for (int i = 1; i <= numCases; i++) {
+                    CASES_COLL.add(category + i);
+                }
+            }
+        }
+        return CASES_COLL;
+    }
+
     /**
      * Converts a case name to its specific id reference in the reference_states.xml file
-     * @return
      */
     public static int caseNameToSubsetId(String subset, String name) {
         switch (subset) {
             case "PLL":
-                return getSubsetCases().indexOf(name);
+            case "COLL":
+                return getSubsetCases(subset).indexOf(name);
             case "OLL":
                 return Integer.valueOf(name.substring(4)) - 1;
         }
@@ -567,7 +589,6 @@ public final class AlgUtils {
                                 "M' U' M2' U' M2' U' M' U2' M2'\n" +
                                 "R' U' R2 U R U R' U' R U R U' R U' R'";
                 }
-
         }
         return "";
     }
