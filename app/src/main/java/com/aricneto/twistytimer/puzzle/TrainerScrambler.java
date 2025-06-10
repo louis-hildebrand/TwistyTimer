@@ -311,6 +311,16 @@ public abstract class TrainerScrambler {
     private static TrainerCase generateLastLayerTrainerCase(Context context, TrainerSubset subset, String caseName) {
         String caseAlg = fetchCaseAlgorithm(context, subset.name(), caseName);
 
+        if (subset == TrainerSubset.COLL) {
+            // Add a random EPLL so that the scramble is a bit more realistic
+            String[] eplls = new String[] { "H", "Z", "UA", "UB", "" };
+            String epllCaseName = eplls[random.nextInt(eplls.length)];
+            if (!epllCaseName.isEmpty()) {
+                caseAlg += " " + Y_ROTATIONS[random.nextInt(4)];
+                caseAlg += " " + fetchCaseAlgorithm(context, TrainerSubset.PLL.name(), epllCaseName);
+            }
+        }
+
         CubePuzzle.CubeState state;
         try {
             state = (CubePuzzle.CubeState) solved.applyAlgorithm(caseAlg);
